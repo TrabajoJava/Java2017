@@ -39,8 +39,30 @@ public class DataPersona {
 				e.printStackTrace();
 			}
 			
-			return pers;
+			return pers;		
+			}
+	
+	public Persona getByDni(Persona per){
+		PreparedStatement stmt=null;
+		ResultSet rs = null;
+		Persona p = null;
+		
+		stmt = FactoryConexion.getInstancia().getConn().prepareStatement("select id, nombre, apellido, dni, habilitado from persona where dni=?");
+		stmt.setString(1, per.getDni());
+		rs = stmt.executeQuery();
+		if(rs!=null && ){
+			
+			
+		}
 }
+			
+		
+		
+		
+		
+		
+		
+	}
 
 		}
 	
