@@ -21,6 +21,8 @@ public class DataPersona {
 					p.setApellido(rs.getString("apellido"));
 					p.setDni(rs.getString("dni"));
 					p.setHabilitado(rs.getBoolean("habilitado"));
+					p.setUsuario(rs.getString("usuario"));
+					p.setContraseña(rs.getString("contraseña"));
 					pers.add(p);
 					
 					}
@@ -48,17 +50,18 @@ public class DataPersona {
 		Persona p = null;
 		
 		try {
-			stmt = FactoryConexion.getInstancia().getConn().prepareStatement("select id, nombre, apellido, dni, habilitado from persona where dni=?");
+			stmt = FactoryConexion.getInstancia().getConn().prepareStatement("select id, nombre, apellido, dni, habilitado, usuario, contraseña from persona where dni=?");
 			stmt.setString(1, docu);
 			rs = stmt.executeQuery();
 			if(rs!=null && rs.next()){
 				p = new Persona();
 				p.setId(rs.getInt("id"));
-				p.setApellido(rs.getString("apellido"));
 				p.setNombre(rs.getString("nombre"));
-				p.setHabilitado(rs.getBoolean("habilitado"));
+				p.setApellido(rs.getString("apellido"));
 				p.setDni(rs.getString("dni"));
-				
+				p.setHabilitado(rs.getBoolean("habilitado"));
+				p.setUsuario(rs.getString("usuario"));
+				p.setContraseña(rs.getString("contraseña"));
 										}
 		} catch (SQLException e) {
 			
@@ -82,13 +85,15 @@ public class DataPersona {
 
 				
 				try {
-					stmt = FactoryConexion.getInstancia().getConn().prepareStatement("insert into persona(nombre,apellido,dni,habilitado) values(?,?,?,?)",
+					stmt = FactoryConexion.getInstancia().getConn().prepareStatement("insert into persona(nombre,apellido,dni,habilitado, usuario, contraseña) values(?,?,?,?,?,?)",
 							PreparedStatement.RETURN_GENERATED_KEYS);
 					/*REvisar que esten en ese roden en la tabla*/
 					stmt.setString(1, per.getNombre());
 					stmt.setString(2, per.getApellido());
 					stmt.setString(3, per.getDni());
 					stmt.setBoolean(4, per.isHabilitado());
+					stmt.setString(5, per.getUsuario());
+					stmt.setString(6, per.getContraseña());
 					stmt.executeUpdate();
 					keyResultSet=stmt.getGeneratedKeys();
 					if(keyResultSet!=null && keyResultSet.next()){
@@ -142,12 +147,14 @@ public class DataPersona {
 			
 			
 			try {
-				stmt = FactoryConexion.getInstancia().getConn().prepareStatement("update persona set dni = ?, nombre = ?, apellido = ?, habilitado = ? where dni = ?");
+				stmt = FactoryConexion.getInstancia().getConn().prepareStatement("update persona set dni = ?, nombre = ?, apellido = ?, habilitado = ?, usuario= ?, contraseña= ? where dni = ?");
 				stmt.setString(1, per.getDni());
 				stmt.setString(2, per.getNombre());
 				stmt.setString(3, per.getApellido());
 				stmt.setBoolean(4, per.isHabilitado());
-				stmt.setString(5, per.getDni());
+				stmt.setString(5, per.getUsuario());
+				stmt.setString(6, per.getContraseña());
+				stmt.setString(7, per.getDni());
 				stmt.executeUpdate();
 				
 			} catch (SQLException e) {
