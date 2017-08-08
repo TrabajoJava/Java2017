@@ -75,4 +75,6 @@ public class Libro extends TipoLibro {
 		
 	}
 	
+	public Libro() {}
+	
 }
