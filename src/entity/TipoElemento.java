@@ -1,10 +1,10 @@
 package entity;
 
-public class TipoLibro {
+public class TipoElemento {
 
 	private int idtipo;
-	private String nombretipo;  //seria por ejemplo: novela, manual, cuento
-	private int cantmaxreservaspendientes;    //es la cantidad máxima de elementos de este tipo que cada usuario puede tener pendiente a futuro. 
+	private String nombretipo;  
+	private int cantmaxreservaspendientes;    
 	
 	
 	public int getIdtipo() {
@@ -26,12 +26,12 @@ public class TipoLibro {
 		this.cantmaxreservaspendientes = cantmaxreservaspendientes;
 	}
 	
-	public TipoLibro(int idtipo, String nombretipo, int cantmaxreservaspendientes) {
+	public TipoElemento(int idtipo, String nombretipo, int cantmaxreservaspendientes) {
 		this.idtipo = idtipo;
 		this.nombretipo = nombretipo;
 		this.cantmaxreservaspendientes = cantmaxreservaspendientes;
 	}
 	
-	public TipoLibro(){};
+	public TipoElemento(){};
 	
 }

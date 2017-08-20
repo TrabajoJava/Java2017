@@ -3,25 +3,20 @@ import java.sql.*;
 import java.util.ArrayList;
 import entity.*;
 
-public class DataLibro {
-			public ArrayList <Libro> getAll(){
+public class DataElemento {
+			public ArrayList <Elemento> getAll(){
 				Statement stmt=null;
 				ResultSet rs=null;
-				ArrayList<Libro> lib= new ArrayList<Libro>();
+				ArrayList<Elemento> lib= new ArrayList<Elemento>();
 				
 				try {
 					stmt = FactoryConexion.getInstancia().getConn().createStatement();
-					rs = stmt.executeQuery("selec * from libro");
+					rs = stmt.executeQuery("select * from elemento");
 					if(rs!=null){
 						while(rs.next()){
-						Libro l = new Libro();
-						l.setAutor(rs.getString("autor"));
-						l.setEditorial(rs.getString("editorial"));
-						l.setGenero(rs.getString("genero"));
-						l.setIdlibro(rs.getInt("idlibro"));
-						l.setIsbn(rs.getString("isbn"));
-						l.setNombrelibro(rs.getString("nombreLibro"));
-						l.setPrecio(rs.getFloat("precio"));
+						Elemento l = new Elemento();
+						l.setIdElemento(rs.getInt("idElemento"));
+						l.setNombreElemento(rs.getString("nombreElemento"));
 						lib.add(l);
 						}
 					}
@@ -39,25 +34,20 @@ public class DataLibro {
 				}
 				return lib;
 			}
-			public Libro getByIsbn(String codigo) {
+			public Elemento getById(String codigo) {
 				
 					PreparedStatement stmt=null;
 					ResultSet rs=null;
-					Libro l = null;
+					Elemento l = null;
 				try {
-					stmt = FactoryConexion.getInstancia().getConn().prepareStatement("select idLibro, nombreLibro, editorial, isbn, genero, precio from libro where isbn=?");
-					//Revisar los elemtnos de la table
+					stmt = FactoryConexion.getInstancia().getConn().prepareStatement("select * from elemento where id=?");
+					
 					stmt.setString(1, codigo);
 					rs = stmt.executeQuery(); 
 					if (rs!=null && rs.next()){
-						l = new Libro();
-						l.setAutor(rs.getString("autor"));
-						l.setEditorial(rs.getString("editorial"));
-						l.setGenero(rs.getString("genero"));
-						l.setIdlibro(rs.getInt("id"));
-						l.setIsbn(rs.getString("isbn"));
-						l.setNombrelibro(rs.getString("nombreLibro"));
-						l.setPrecio(rs.getFloat("precio"));
+						l = new Elemento();
+						l.setIdElemento(rs.getInt("idElemento"));
+						l.setNombreElemento(rs.getString("nombreElemento"));
 						
 					}
 				} catch (SQLException e) {
@@ -76,24 +66,21 @@ public class DataLibro {
 				return l;
 				
 			}
-			public void add(Libro lib){
+			public void add(Elemento lib){
 				PreparedStatement stmt = null;
 				ResultSet keyResultSet=null;
 				
 				try {
-					stmt = FactoryConexion.getInstancia().getConn().prepareStatement("insert into libro(autor,editorial,genero,isbn,nombreLibro,precio) values(?,?,?,?,?,?)"
+					stmt = FactoryConexion.getInstancia().getConn().prepareStatement("insert into elemento(nombreElemento) values()"
 							,PreparedStatement.RETURN_GENERATED_KEYS);
-					stmt.setString(1, lib.getAutor());
-					stmt.setString(2, lib.getEditorial());
-					stmt.setString(3, lib.getGenero());
-					stmt.setString(4, lib.getIsbn());
-					stmt.setString(5, lib.getNombrelibro());
-					stmt.setFloat(6, lib.getPrecio());
+					stmt.setInt(1, lib.getIdElemento());
+					stmt.setString(2, lib.getNombreElemento());
+					//Aca revisar, le mando o no le mando el id? (Autoincremental)
 					
 					stmt.executeUpdate();
 					keyResultSet=stmt.getGeneratedKeys();
 					if(keyResultSet!=null && keyResultSet.next()){
-						lib.setIdlibro(keyResultSet.getInt(1)); 
+						lib.setIdElemento(keyResultSet.getInt(1)); 
 					}
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
@@ -112,7 +99,7 @@ public class DataLibro {
 				PreparedStatement stmt = null;
 				
 				try {
-					stmt =  FactoryConexion.getInstancia().getConn().prepareStatement("delete from libro where isbn=?");
+					stmt =  FactoryConexion.getInstancia().getConn().prepareStatement("delete from elemento where idElemento=?");
 					stmt.setString(1, codigo);
 					stmt.executeUpdate();
 				} catch (SQLException e) {
@@ -127,17 +114,12 @@ public class DataLibro {
 					e.printStackTrace();
 				}
 			}
-			public void update(Libro lib){
+			public void update(Elemento lib){
 				PreparedStatement stmt = null;
 			
 				try {
-					stmt = FactoryConexion.getInstancia().getConn().prepareStatement("update libro set nombreLibro = ?, editorial = ?,isbn = ?, genero=?, precio=?");
-					stmt.setString(1, lib.getAutor());
-					stmt.setString(2, lib.getEditorial());
-					stmt.setString(3, lib.getGenero());
-					stmt.setString(4, lib.getIsbn());
-					stmt.setString(5, lib.getNombrelibro());
-					stmt.setFloat(6, lib.getPrecio());
+					stmt = FactoryConexion.getInstancia().getConn().prepareStatement("update elemento set nombreElemento=?");
+					stmt.setString(1, lib.getNombreElemento());
 					stmt.executeUpdate();
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block

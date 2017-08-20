@@ -6,24 +6,24 @@ import entity.*;
 
 
 
-public class DataTipoLibro {
+public class DataTipoElemento {
 
-	public ArrayList<TipoLibro> getAllLibro(){
+	public ArrayList<TipoElemento> getAllTipos(){
 		
 		Statement stmt = null;
 		ResultSet rs = null;
-		ArrayList<TipoLibro> libros = new ArrayList<TipoLibro>();
+		ArrayList<TipoElemento> tipos = new ArrayList<TipoElemento>();
 		
 		try {
 			stmt= FactoryConexion.getInstancia().getConn().createStatement();
-			rs = stmt.executeQuery("select * from tipolibro");
+			rs = stmt.executeQuery("select * from tipoElemento");
 			if(rs!=null){
 				while(rs.next()){
-					TipoLibro tl = new TipoLibro();
+					TipoElemento tl = new TipoElemento();
 					tl.setCantmaxreservaspendientes(rs.getInt("cantmaxreservaspendientes"));
-					tl.setIdtipo(rs.getInt("idtipo"));
-					tl.setNombretipo(rs.getString("nombretipo"));
-					libros.add(tl);
+					tl.setIdtipo(rs.getInt("idTipo"));
+					tl.setNombretipo(rs.getString("nombreTipo"));
+					tipos.add(tl);
 				}
 			}
 		} catch (SQLException e) {
@@ -38,7 +38,7 @@ public class DataTipoLibro {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return libros;
+		return tipos;
 		
 		
 		
