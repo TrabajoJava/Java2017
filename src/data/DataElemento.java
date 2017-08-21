@@ -11,10 +11,15 @@ public class DataElemento {
 				
 				try {
 					stmt = FactoryConexion.getInstancia().getConn().createStatement();
-					rs = stmt.executeQuery("select * from elemento");
+					rs = stmt.executeQuery("select * from elemento"); 
 					if(rs!=null){
 						while(rs.next()){
-						Elemento l = new Elemento();
+						int idtipo = 0;
+						String nombretipo = null;
+						int cantmaxreservaspendientes = 0;
+						
+						Elemento l = new Elemento(idtipo,nombretipo,cantmaxreservaspendientes);
+						l.setIdtipo(rs.getInt("idTipo"));
 						l.setIdElemento(rs.getInt("idElemento"));
 						l.setNombreElemento(rs.getString("nombreElemento"));
 						lib.add(l);
@@ -41,11 +46,12 @@ public class DataElemento {
 					Elemento l = null;
 				try {
 					stmt = FactoryConexion.getInstancia().getConn().prepareStatement("select * from elemento where id=?");
-					
 					stmt.setString(1, codigo);
 					rs = stmt.executeQuery(); 
 					if (rs!=null && rs.next()){
-						l = new Elemento();
+						
+						//ver si hace falta crear el elemento
+						l.setIdtipo(rs.getInt("idTipo"));
 						l.setIdElemento(rs.getInt("idElemento"));
 						l.setNombreElemento(rs.getString("nombreElemento"));
 						
@@ -71,12 +77,11 @@ public class DataElemento {
 				ResultSet keyResultSet=null;
 				
 				try {
-					stmt = FactoryConexion.getInstancia().getConn().prepareStatement("insert into elemento(nombreElemento) values()"
+					stmt = FactoryConexion.getInstancia().getConn().prepareStatement("insert into elemento(nombreElemento,idTipo) values(?,?)"
 							,PreparedStatement.RETURN_GENERATED_KEYS);
-					stmt.setInt(1, lib.getIdElemento());
-					stmt.setString(2, lib.getNombreElemento());
+					stmt.setInt(2, lib.getIdtipo());
+					stmt.setString(1, lib.getNombreElemento());
 					//Aca revisar, le mando o no le mando el id? (Autoincremental)
-					
 					stmt.executeUpdate();
 					keyResultSet=stmt.getGeneratedKeys();
 					if(keyResultSet!=null && keyResultSet.next()){
@@ -95,7 +100,7 @@ public class DataElemento {
 					e.printStackTrace();
 				}
 			}
-			public void deleteByIsbn(String codigo){
+			public void deleteById(String codigo){
 				PreparedStatement stmt = null;
 				
 				try {
@@ -118,8 +123,9 @@ public class DataElemento {
 				PreparedStatement stmt = null;
 			
 				try {
-					stmt = FactoryConexion.getInstancia().getConn().prepareStatement("update elemento set nombreElemento=?");
+					stmt = FactoryConexion.getInstancia().getConn().prepareStatement("update elemento set nombreElemento=?, idTipo=?");
 					stmt.setString(1, lib.getNombreElemento());
+					stmt.setInt(2, lib.getIdtipo());
 					stmt.executeUpdate();
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block

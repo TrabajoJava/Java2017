@@ -2,10 +2,6 @@ package entity;
 
 public class Elemento extends TipoElemento {
 
-		
-		
-
-
 			private int idElemento;
 			private String nombreElemento;
 			
@@ -30,16 +26,11 @@ public class Elemento extends TipoElemento {
 				this.nombreElemento = nombreElemento;
 			}
 			
-			public Elemento() {
-				super();
-				// TODO Auto-generated constructor stub
-			}
 			public Elemento(int idtipo, String nombretipo, int cantmaxreservaspendientes) {
 				super(idtipo, nombretipo, cantmaxreservaspendientes);
 				// TODO Auto-generated constructor stub
 			}
 			
-			//Si quiero crear uno vacio está bien este contructor?
-			//Aca habria que ver como perdimos los datos de la superclase
+			
 	
 }
