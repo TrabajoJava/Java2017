@@ -187,13 +187,12 @@ public class ABMCPersona extends JFrame {
 		this.chkHabilitado.setSelected(p.isHabilitado());
 	}
 	
-	private Persona mapearDeForm(){
-		Persona p=new Persona();
+	/*private Persona mapearDeForm(){
+		Persona p=new Persona(); hay que mandarle que tipo de persona es
 		p.setDni(this.txtDni.getText());
 		p.setNombre(this.txtNombre.getText());
 		p.setApellido(this.txtApellido.getText());
 		p.setHabilitado(this.chkHabilitado.isSelected());
 		//agregar usuario y contraseña (botones)
-		return p;
+		return p;*/
 	}
-}

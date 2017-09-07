@@ -212,7 +212,7 @@ public class ABMCPersonaDesktop extends JInternalFrame {
 		this.txtId.setText(String.valueOf(p.getId()));
 	}
 	
-	private Persona mapearDeForm(){
+	/*private Persona mapearDeForm(){			Hay que mandarle que tipo de persona es
 		Persona p=new Persona();
 		if(!this.txtId.getText().isEmpty()){
 			p.setId(Integer.parseInt(this.txtId.getText()));
@@ -222,5 +222,5 @@ public class ABMCPersonaDesktop extends JInternalFrame {
 		p.setApellido(this.txtApellido.getText());
 		p.setHabilitado(this.chkHabilitado.isSelected());
 		return p;
-	}
+	}*/
 }

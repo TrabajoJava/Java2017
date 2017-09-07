@@ -1,6 +1,6 @@
 package entity;
 
-public class Persona {
+public class Persona extends Categoria {
 	
 	private int id;
 	private String dni;
@@ -55,13 +55,24 @@ public class Persona {
 	public void setHabilitado(boolean habilitado) {
 		this.habilitado = habilitado;
 	}
-	public Persona(int id, String dni, String nombre, String apellido, boolean habilitado) {
-		this.setDni(dni);     //this.dni = dni;
-		this.setApellido(apellido);
-		this.setNombre(nombre);
-		this.setHabilitado(habilitado);
+	public Persona(String nombrecat, int idcat) {
+		super(nombrecat, idcat);
+		// TODO Auto-generated constructor stub
 	}
-	public Persona() {	}
+	
+	public Persona(String nombrecat, int idcat, int id, String dni, String nombre, String apellido, boolean habilitado, String usuario,
+			String contraseña) {
+		super(nombrecat, idcat);
+		this.id = id;
+		this.dni = dni;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.habilitado = habilitado;
+		this.usuario = usuario;
+		this.contraseña = contraseña;
+	}
+	
+	
 	
 	
 	
