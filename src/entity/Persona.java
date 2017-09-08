@@ -8,7 +8,7 @@ public class Persona extends Categoria {
 	private String apellido;
 	private boolean habilitado;
 	private String usuario;
-	private String contraseña;
+	private String contrasena;
 	
 	
 	public String getUsuario() {
@@ -17,11 +17,11 @@ public class Persona extends Categoria {
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
-	public String getContraseña() {
-		return contraseña;
+	public String getContrasena() {
+		return contrasena;
 	}
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
 	}
 	public int getId() {
 		return id;
@@ -61,7 +61,7 @@ public class Persona extends Categoria {
 	}
 	
 	public Persona(String nombrecat, int idcat, int id, String dni, String nombre, String apellido, boolean habilitado, String usuario,
-			String contraseña) {
+			String contrasena) {
 		super(nombrecat, idcat);
 		this.id = id;
 		this.dni = dni;
@@ -69,7 +69,7 @@ public class Persona extends Categoria {
 		this.apellido = apellido;
 		this.habilitado = habilitado;
 		this.usuario = usuario;
-		this.contraseña = contraseña;
+		this.contrasena = contrasena;
 	}
 	
 	
