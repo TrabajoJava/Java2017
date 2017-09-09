@@ -2,9 +2,9 @@ package entity;
 
 public class TipoElemento {
 
-	private int idtipo;
+	private int idtipo,cantmaxreservaspendientes;
 	private String nombretipo;  
-	private int cantmaxreservaspendientes;    
+	   
 	
 	
 	public int getIdtipo() {

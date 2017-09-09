@@ -3,13 +3,9 @@ package entity;
 public class Persona extends Categoria {
 	
 	private int id;
-	private String dni;
-	private String nombre;
-	private String apellido;
+	private String dni, nombre, apellido, usuario, contrasena;
 	private boolean habilitado;
-	private String usuario;
-	private String contrasena;
-	
+		
 	
 	public String getUsuario() {
 		return usuario;
@@ -48,16 +44,16 @@ public class Persona extends Categoria {
 		this.apellido = apellido;
 	}
 	
-		
 	public boolean isHabilitado() {
 		return habilitado;
 	}
 	public void setHabilitado(boolean habilitado) {
 		this.habilitado = habilitado;
 	}
-	public Persona(String nombrecat, int idcat) {
-		super(nombrecat, idcat);
-		// TODO Auto-generated constructor stub
+	
+	public Persona(){
+		super(); //No se si esta bien, no me dejaba hacer nada si no lo ponia
+		
 	}
 	
 	public Persona(String nombrecat, int idcat, int id, String dni, String nombre, String apellido, boolean habilitado, String usuario,
@@ -71,6 +67,8 @@ public class Persona extends Categoria {
 		this.usuario = usuario;
 		this.contrasena = contrasena;
 	}
+	
+	
 	
 	
 	

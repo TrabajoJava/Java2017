@@ -23,6 +23,9 @@ public class Categoria {
 		this.nombrecat = nombrecat;
 		this.idcat = idcat;
 	}
+	public Categoria() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	
 	
