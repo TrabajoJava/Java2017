@@ -23,9 +23,9 @@ public class CtrlPersona {
 		dataPer.add(per);
 	}
 	
-	public void deletebydni(String dni){
+	public void deletebydni(Persona per){
 		
-		dataPer.deleteByDni(dni);
+		dataPer.deleteByDni(per);
 		
 	}
 	
@@ -36,9 +36,9 @@ public class CtrlPersona {
 		
 	}
 	
-	public Persona getbydni(String dni){
+	public Persona getbydni(Persona per){
 		
-		return dataPer.getByDni(dni);
+		return dataPer.getByDni(per);
 	}
 	
 	public void update(Persona per){

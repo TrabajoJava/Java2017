@@ -22,7 +22,7 @@ public class DataPersona {
 					p.setDni(rs.getString("dni"));
 					p.setHabilitado(rs.getBoolean("habilitado"));
 					p.setUsuario(rs.getString("usuario"));
-					p.setContrase�a(rs.getString("contrase�a"));
+					p.setContrasena(rs.getString("contrasena"));
 					pers.add(p);
 					
 					}*/ 			
@@ -44,24 +44,24 @@ public class DataPersona {
 			return pers;		
 			}
 	
-	public Persona getByDni(String docu){
+	public Persona getByDni(Persona per){
 		PreparedStatement stmt=null;
 		ResultSet rs = null;
-		Persona p = null;
+		String docu = per.getDni();
 		
 		try {
 			stmt = FactoryConexion.getInstancia().getConn().prepareStatement("select id, nombre, apellido, dni, habilitado, usuario, contrase�a from persona where dni=?");
 			stmt.setString(1, docu);
 			rs = stmt.executeQuery();
 			if(rs!=null && rs.next()){	
-				/*p = new Persona();				iden a todos los otros
-				p.setId(rs.getInt("id"));
-				p.setNombre(rs.getString("nombre"));
-				p.setApellido(rs.getString("apellido"));
-				p.setDni(rs.getString("dni"));
-				p.setHabilitado(rs.getBoolean("habilitado"));
-				p.setUsuario(rs.getString("usuario"));
-				p.setContrase�a(rs.getString("contrase�a"));
+				/*p = new Persona();				idem a todos los otros
+				per.setId(rs.getInt("id"));
+				per.setNombre(rs.getString("nombre"));
+				per.setApellido(rs.getString("apellido"));
+				per.setDni(rs.getString("dni"));
+				per.setHabilitado(rs.getBoolean("habilitado"));
+				per.setUsuario(rs.getString("usuario"));
+				per.setContrasena(rs.getString("contrasena"));
 										*/}
 		} catch (SQLException e) {
 			
@@ -76,7 +76,7 @@ public class DataPersona {
 			
 				e.printStackTrace();
 			}
-			return p;
+			return per;
 }
 			
 		public void add(Persona per){
@@ -116,10 +116,10 @@ public class DataPersona {
 		}
 		
 		
-		public void deleteByDni(String docu){
+		public void deleteByDni(Persona per){
 			
 			PreparedStatement stmt = null;
-			
+			String docu = per.getDni();
 			
 			try {
 				stmt =  FactoryConexion.getInstancia().getConn().prepareStatement("delete from persona where dni=?");

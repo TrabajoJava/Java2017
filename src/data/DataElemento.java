@@ -39,21 +39,21 @@ public class DataElemento {
 				}
 				return lib;
 			}
-			public Elemento getById(String codigo) {
+			public Elemento getById(Elemento el) {
 				
 					PreparedStatement stmt=null;
 					ResultSet rs=null;
-					Elemento l = null;
+					int codigo = el.getIdElemento();
 				try {
 					stmt = FactoryConexion.getInstancia().getConn().prepareStatement("select * from elemento where id=?");
-					stmt.setString(1, codigo);
+					stmt.setInt(1, codigo);
 					rs = stmt.executeQuery(); 
 					if (rs!=null && rs.next()){
 						
 						//ver si hace falta crear el elemento
-						l.setIdtipo(rs.getInt("idTipo"));
-						l.setIdElemento(rs.getInt("idElemento"));
-						l.setNombreElemento(rs.getString("nombreElemento"));
+						el.setIdtipo(rs.getInt("idTipo"));
+						el.setIdElemento(rs.getInt("idElemento"));
+						el.setNombreElemento(rs.getString("nombreElemento"));
 						
 					}
 				} catch (SQLException e) {
@@ -69,7 +69,7 @@ public class DataElemento {
 				
 					e.printStackTrace();
 				}
-				return l;
+				return el;
 				
 			}
 			public void add(Elemento lib){
@@ -100,12 +100,12 @@ public class DataElemento {
 					e.printStackTrace();
 				}
 			}
-			public void deleteById(String codigo){
+			public void deleteById(Elemento el){
 				PreparedStatement stmt = null;
-				
+				int codigo = el.getIdElemento();
 				try {
 					stmt =  FactoryConexion.getInstancia().getConn().prepareStatement("delete from elemento where idElemento=?");
-					stmt.setString(1, codigo);
+					stmt.setInt(1, codigo);
 					stmt.executeUpdate();
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
