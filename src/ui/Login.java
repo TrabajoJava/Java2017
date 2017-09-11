@@ -1,49 +1,62 @@
 package ui;
 
-import javax.swing.JPanel;
 import java.awt.EventQueue;
 
 import javax.swing.JInternalFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import controlers.CtrlPersona;
-import entity.Persona;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JDesktopPane;
 
-public class Login extends JPanel {
-	private JTextField textField;
-	private JTextField textField_1;
+public class Login extends JInternalFrame {
 
 	/**
-	 * Create the panel.
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Login frame = new Login();
+					frame.setVisible(true);
+					
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
 	 */
 	public Login() {
-		setLayout(null);
+		setClosable(true);
+		setDefaultCloseOperation(JInternalFrame.HIDE_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("User");
-		lblNewLabel.setBounds(10, 11, 46, 14);
-		add(lblNewLabel);
+		JDesktopPane desktopPane = new JDesktopPane();
+		desktopPane.setBounds(221, 96, 1, 1);
+		getContentPane().add(desktopPane);
 		
-		JLabel lblPassword = new JLabel("Password");
-		lblPassword.setBounds(10, 36, 46, 14);
-		add(lblPassword);
+		JButton btnIngresar = new JButton("Ingresar");
+		btnIngresar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				ABMCPersonaDesktop ps= new ABMCPersonaDesktop();
+				desktopPane.add(ps);
+				ps.setVisible(true);
+					
+			}
+		});
+		btnIngresar.setBounds(43, 93, 89, 23);
+		getContentPane().add(btnIngresar);
 		
-		textField = new JTextField();
-		textField.setBounds(66, 8, 86, 20);
-		add(textField);
-		textField.setColumns(10);
+	
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(66, 33, 86, 20);
-		add(textField_1);
-		textField_1.setColumns(10);
 		
-		JButton btnAceptar = new JButton("Aceptar");
-		btnAceptar.setBounds(40, 60, 89, 23);
-		add(btnAceptar);
 
 	}
 

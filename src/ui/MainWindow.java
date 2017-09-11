@@ -55,10 +55,10 @@ public class MainWindow {
 		JMenu mnuPersona = new JMenu("Persona");
 		menuBar.add(mnuPersona);
 		
-		JMenuItem mnuABMCPersona = new JMenuItem("ABMCPersona");
+		JMenuItem mnuABMCPersona = new JMenuItem("Ingresar");
 		mnuABMCPersona.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				mnuABMCPersonaClick();
+				loginClick();
 			}
 		});
 		mnuPersona.add(mnuABMCPersona);
@@ -68,9 +68,9 @@ public class MainWindow {
 		frame.getContentPane().add(desktopPane, BorderLayout.CENTER);
 	}
 
-	protected void mnuABMCPersonaClick() {
-		ABMCPersonaDesktop pd= new ABMCPersonaDesktop();
-		desktopPane.add(pd);
-		pd.setVisible(true);
+	protected void loginClick() {
+		Login lg= new Login();
+		desktopPane.add(lg);
+		lg.setVisible(true);
 	}
 }
