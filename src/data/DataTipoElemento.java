@@ -16,13 +16,13 @@ public class DataTipoElemento {
 		
 		try {
 			stmt= FactoryConexion.getInstancia().getConn().createStatement();
-			rs = stmt.executeQuery("select * from tipoElemento");
+			rs = stmt.executeQuery("select * from tipoelementos");
 			if(rs!=null){
 				while(rs.next()){
 					TipoElemento tl = new TipoElemento();
 					tl.setCantmaxreservaspendientes(rs.getInt("cantmaxreservaspendientes"));
-					tl.setIdtipo(rs.getInt("idTipo"));
-					tl.setNombretipo(rs.getString("nombreTipo"));
+					tl.setIdtipo(rs.getInt("id_tipo"));
+					tl.setNombretipo(rs.getString("nombre_tipo"));
 					tipos.add(tl);
 				}
 			}

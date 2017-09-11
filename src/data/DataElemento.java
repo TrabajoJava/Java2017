@@ -11,17 +11,17 @@ public class DataElemento {
 				
 				try {
 					stmt = FactoryConexion.getInstancia().getConn().createStatement();
-					rs = stmt.executeQuery("select * from elemento"); 
+					rs = stmt.executeQuery("select * from elementos"); 
 					if(rs!=null){
 						while(rs.next()){
-						int idtipo = 0;
-						String nombretipo = null;
-						int cantmaxreservaspendientes = 0;
+						int id_elemento = 0;
+						String nombre_elemento = null;
+						int id_tipo = 0;
 						
-						Elemento l = new Elemento(idtipo,nombretipo,cantmaxreservaspendientes);
-						l.setIdtipo(rs.getInt("idTipo"));
-						l.setIdElemento(rs.getInt("idElemento"));
-						l.setNombreElemento(rs.getString("nombreElemento"));
+						Elemento l = new Elemento(id_elemento,nombre_elemento, id_tipo);
+						l.setIdElemento(rs.getInt("id_elemento"));
+						l.setNombreElemento(rs.getString("nombre_elemento"));
+						l.setIdtipo(rs.getInt("id_tipo"));
 						lib.add(l);
 						}
 					}
@@ -45,15 +45,15 @@ public class DataElemento {
 					ResultSet rs=null;
 					int codigo = el.getIdElemento();
 				try {
-					stmt = FactoryConexion.getInstancia().getConn().prepareStatement("select * from elemento where id=?");
+					stmt = FactoryConexion.getInstancia().getConn().prepareStatement("select * from elementos where id=?");
 					stmt.setInt(1, codigo);
 					rs = stmt.executeQuery(); 
 					if (rs!=null && rs.next()){
 						
 						//ver si hace falta crear el elemento
-						el.setIdtipo(rs.getInt("idTipo"));
-						el.setIdElemento(rs.getInt("idElemento"));
-						el.setNombreElemento(rs.getString("nombreElemento"));
+						el.setIdtipo(rs.getInt("id_tipo"));
+						el.setIdElemento(rs.getInt("id_elemento"));
+						el.setNombreElemento(rs.getString("nombre_elemento"));
 						
 					}
 				} catch (SQLException e) {
@@ -77,7 +77,7 @@ public class DataElemento {
 				ResultSet keyResultSet=null;
 				
 				try {
-					stmt = FactoryConexion.getInstancia().getConn().prepareStatement("insert into elemento(nombreElemento,idTipo) values(?,?)"
+					stmt = FactoryConexion.getInstancia().getConn().prepareStatement("insert into elementos(nombre_elemento,id_tipo) values(?,?)"
 							,PreparedStatement.RETURN_GENERATED_KEYS);
 					stmt.setInt(2, lib.getIdtipo());
 					stmt.setString(1, lib.getNombreElemento());
@@ -104,7 +104,7 @@ public class DataElemento {
 				PreparedStatement stmt = null;
 				int codigo = el.getIdElemento();
 				try {
-					stmt =  FactoryConexion.getInstancia().getConn().prepareStatement("delete from elemento where idElemento=?");
+					stmt =  FactoryConexion.getInstancia().getConn().prepareStatement("delete from elementos where id_elemento=?");
 					stmt.setInt(1, codigo);
 					stmt.executeUpdate();
 				} catch (SQLException e) {
@@ -123,7 +123,7 @@ public class DataElemento {
 				PreparedStatement stmt = null;
 			
 				try {
-					stmt = FactoryConexion.getInstancia().getConn().prepareStatement("update elemento set nombreElemento=?, idTipo=?");
+					stmt = FactoryConexion.getInstancia().getConn().prepareStatement("update elementos set nombre_elemento=?, id_tipo=?");
 					stmt.setString(1, lib.getNombreElemento());
 					stmt.setInt(2, lib.getIdtipo());
 					stmt.executeUpdate();
