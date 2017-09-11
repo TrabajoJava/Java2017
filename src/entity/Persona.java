@@ -51,10 +51,16 @@ public class Persona extends Categoria {
 		this.habilitado = habilitado;
 	}
 	
-	public Persona(){
-		super(); //No se si esta bien, no me dejaba hacer nada si no lo ponia
-		
+	
+	public Persona() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
+	public Persona(String nombrecat, int idcat) {
+		super(nombrecat, idcat);
+		// TODO Auto-generated constructor stub
+	}
+	
 	
 	public Persona(String nombrecat, int idcat, int id, String dni, String nombre, String apellido, boolean habilitado, String usuario,
 			String contrasena) {

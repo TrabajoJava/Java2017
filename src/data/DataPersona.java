@@ -14,7 +14,7 @@ public class DataPersona {
 				stmt = FactoryConexion.getInstancia().getConn().createStatement();
 				rs = stmt.executeQuery("select * from persona");
 				if(rs!=null){
-					/*while(rs.next()){					Hay que mandarle que tipo de persona es
+					while(rs.next()){					
 					Persona p=new Persona();
 					p.setId(rs.getInt("id"));
 					p.setNombre(rs.getString("nombre"));
@@ -23,9 +23,10 @@ public class DataPersona {
 					p.setHabilitado(rs.getBoolean("habilitado"));
 					p.setUsuario(rs.getString("usuario"));
 					p.setContrasena(rs.getString("contrasena"));
+					p.setIdcat(rs.getInt("id_cat"));
 					pers.add(p);
 					
-					}*/ 			
+					} 			
 				}
 			} catch (SQLException e) {
 				
