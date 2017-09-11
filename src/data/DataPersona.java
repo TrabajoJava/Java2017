@@ -49,21 +49,22 @@ public class DataPersona {
 		PreparedStatement stmt=null;
 		ResultSet rs = null;
 		String docu = per.getDni();
+		Persona p = null;
 		
 		try {
 			stmt = FactoryConexion.getInstancia().getConn().prepareStatement("select id, nombre, apellido, dni, habilitado, usuario, contrasena from personas where dni=?");
 			stmt.setString(1, docu);
 			rs = stmt.executeQuery();
 			if(rs!=null && rs.next()){	
-				/*p = new Persona();				idem a todos los otros
-				per.setId(rs.getInt("id"));
-				per.setNombre(rs.getString("nombre"));
-				per.setApellido(rs.getString("apellido"));
-				per.setDni(rs.getString("dni"));
-				per.setHabilitado(rs.getBoolean("habilitado"));
-				per.setUsuario(rs.getString("usuario"));
-				per.setContrasena(rs.getString("contrasena"));
-										*/}
+				p = new Persona();				
+				p.setId(rs.getInt("id"));
+				p.setNombre(rs.getString("nombre"));
+				p.setApellido(rs.getString("apellido"));
+				p.setDni(rs.getString("dni"));
+				p.setHabilitado(rs.getBoolean("habilitado"));
+				p.setUsuario(rs.getString("usuario"));
+				p.setContrasena(rs.getString("contrasena"));
+										}
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
@@ -77,7 +78,7 @@ public class DataPersona {
 			
 				e.printStackTrace();
 			}
-			return per;
+			return p;
 }
 			
 		public void add(Persona per){
