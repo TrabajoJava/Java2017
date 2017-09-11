@@ -23,7 +23,7 @@ public class DataPersona {
 					p.setHabilitado(rs.getBoolean("habilitado"));
 					p.setUsuario(rs.getString("usuario"));
 					p.setContrasena(rs.getString("contrasena"));
-					p.setIdcat(rs.getInt("id_cat"));
+					// p.setIdcat(rs.getInt("id_cat")); ya no la usamos 
 					pers.add(p);
 					
 					} 			

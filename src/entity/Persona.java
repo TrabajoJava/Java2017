@@ -1,6 +1,6 @@
 package entity;
 
-public class Persona extends Categoria {
+public class Persona {
 	
 	private int id;
 	private String dni, nombre, apellido, usuario, contrasena;
@@ -53,18 +53,13 @@ public class Persona extends Categoria {
 	
 	
 	public Persona() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public Persona(String nombrecat, int idcat) {
-		super(nombrecat, idcat);
+		
 		// TODO Auto-generated constructor stub
 	}
 	
 	
-	public Persona(String nombrecat, int idcat, int id, String dni, String nombre, String apellido, boolean habilitado, String usuario,
-			String contrasena) {
-		super(nombrecat, idcat);
+	
+	public Persona(int id, String dni, String nombre, String apellido, boolean habilitado, String usuario, String contrasena) {
 		this.id = id;
 		this.dni = dni;
 		this.nombre = nombre;

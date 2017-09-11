@@ -303,11 +303,11 @@ public class ABMCPersonaDesktop extends JInternalFrame {
 	protected void modificarClick(){
 		ctrl.update(this.mapearDeForm());
 	}
-	
-	 private int devuelveCategoria(){
+	/*
+	 private int devuelveCategoria(){   no lo usamos mas a devuelve categoria
 		return 0;
 	}
-		/*	private int devuelveCategoria(rdbtnCategoriaUsuario,rdbtnCategoriaAdministrador,rdbtnCategoriaEncargado){
+			private int devuelveCategoria(rdbtnCategoriaUsuario,rdbtnCategoriaAdministrador,rdbtnCategoriaEncargado){
 		int a=0;
 		if( rdbtnCategoriaUsuario.isSelected()){
 			a=0;
@@ -337,7 +337,7 @@ public class ABMCPersonaDesktop extends JInternalFrame {
 				p.setHabilitado(this.chkHabilitado.isSelected());
 				p.setUsuario(this.txtUsuario.getText());
 				p.setContrasena(this.txtContrasena.getText());
-				p.setIdcat(this.devuelveCategoria());
+				//p.setIdcat(this.devuelveCategoria()); ya no usamos categoria
 				return p;
 			}
 }
