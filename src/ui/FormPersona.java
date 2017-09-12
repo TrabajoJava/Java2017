@@ -3,37 +3,37 @@ package ui;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import controlers.CtrlPersona;
 import entity.Persona;
 
-import javax.swing.JTextField;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JCheckBox;
-import javax.swing.JRadioButton;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JFrame;
 
 public class FormPersona extends JFrame {
-	
-	private CtrlPersona ctrl = new CtrlPersona();
+
+	private CtrlPersona ctrl=new CtrlPersona();
 	
 	private JPanel contentPane;
+	private JTextField txtDni;
 	private JTextField txtNombre;
 	private JTextField txtApellido;
-	private JTextField txtUsuario;
-	private JTextField txtContrasena;
-	private JTextField txtDni;
+	private JCheckBox chkHabilitado;
 	private JTextField txtId;
-	private JCheckBox chbHabilitado;
-	private JButton btnBuscar;
+	private JLabel lblUsuario;
+	private JTextField txtUsuario;
 
 	/**
 	 * Launch the application.
@@ -55,105 +55,117 @@ public class FormPersona extends JFrame {
 	 * Create the frame.
 	 */
 	public FormPersona() {
-		setTitle("Persona");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 447, 379);
+	
+		setDefaultCloseOperation(JInternalFrame.HIDE_ON_CLOSE);
+		setBounds(100, 100, 328, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
 		
+		JLabel lblDni = new JLabel("DNI");
 		
+		txtDni = new JTextField();
+		txtDni.setColumns(10);
 		
+		JLabel lblNombre = new JLabel("Nombre");
+		
+		JLabel lblApellido = new JLabel("Apellido");
 		
 		txtNombre = new JTextField();
-		txtNombre.setBounds(129, 57, 144, 20);
-		contentPane.add(txtNombre);
+		txtNombre.setEditable(false);
 		txtNombre.setColumns(10);
 		
 		txtApellido = new JTextField();
-		txtApellido.setBounds(129, 88, 144, 20);
-		contentPane.add(txtApellido);
+		txtApellido.setEditable(false);
 		txtApellido.setColumns(10);
 		
-		txtUsuario = new JTextField();
-		txtUsuario.setBounds(129, 155, 144, 20);
-		contentPane.add(txtUsuario);
-		txtUsuario.setColumns(10);
+		chkHabilitado = new JCheckBox("Habilitado");
+		chkHabilitado.setSelected(true);
 		
-		txtContrasena = new JTextField();
-		txtContrasena.setBounds(129, 186, 144, 20);
-		contentPane.add(txtContrasena);
-		txtContrasena.setColumns(10);
-		
-		JLabel lblNombre = new JLabel("Nombre");
-		lblNombre.setBounds(38, 63, 46, 14);
-		contentPane.add(lblNombre);
-		
-		JLabel lblApellido = new JLabel("Apellido");
-		lblApellido.setBounds(38, 94, 46, 14);
-		contentPane.add(lblApellido);
-		
-		JLabel lblUsuario = new JLabel("Usuario");
-		lblUsuario.setBounds(38, 161, 46, 14);
-		contentPane.add(lblUsuario);
-		
-		JLabel lblContrasena = new JLabel("Contrasena");
-		lblContrasena.setBounds(38, 192, 76, 14);
-		contentPane.add(lblContrasena);
-		
-		JCheckBox chbHabilitado = new JCheckBox("Habilitado");
-		chbHabilitado.setSelected(true);
-		chbHabilitado.setBounds(38, 217, 97, 23);
-		contentPane.add(chbHabilitado);
-		
-		JRadioButton rdbtnUsuario = new JRadioButton("Usuario");
-		rdbtnUsuario.setBounds(38, 243, 109, 23);
-		contentPane.add(rdbtnUsuario);
-		
-		JRadioButton rdbtnEncargado = new JRadioButton("Encargado");
-		rdbtnEncargado.setBounds(164, 243, 109, 23);
-		contentPane.add(rdbtnEncargado);
-		
-		JRadioButton rdbtnAdministrador = new JRadioButton("Administrador");
-		rdbtnAdministrador.setBounds(300, 243, 109, 23);
-		contentPane.add(rdbtnAdministrador);
-		
-		JLabel lblDni = new JLabel("Dni");
-		lblDni.setBounds(38, 130, 46, 14);
-		contentPane.add(lblDni);
-		
-		txtDni = new JTextField();
-		txtDni.setBounds(129, 124, 144, 20);
-		contentPane.add(txtDni);
-		txtDni.setColumns(10);
-		
-		btnBuscar = new JButton("Buscar");
+		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				buscarClick();
 			}
-
-			
 		});
-		btnBuscar.setBounds(129, 292, 144, 23);
-		contentPane.add(btnBuscar);
 		
-		JLabel lblId = new JLabel("Id");
-		lblId.setBounds(38, 29, 46, 14);
-		contentPane.add(lblId);
+		JLabel lblId = new JLabel("ID");
 		
 		txtId = new JTextField();
-		txtId.setBounds(129, 26, 144, 20);
-		contentPane.add(txtId);
+		txtId.setEditable(false);
 		txtId.setColumns(10);
-			
 		
+		lblUsuario = new JLabel("Usuario");
 		
-		
+		txtUsuario = new JTextField();
+		txtUsuario.setEditable(false);
+		txtUsuario.setColumns(10);
+		GroupLayout gl_contentPane = new GroupLayout(contentPane);
+		gl_contentPane.setHorizontalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+							.addGroup(gl_contentPane.createSequentialGroup()
+								.addComponent(lblId)
+								.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(txtId, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addGroup(gl_contentPane.createSequentialGroup()
+								.addComponent(lblDni)
+								.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(txtDni, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addGroup(gl_contentPane.createSequentialGroup()
+								.addComponent(lblNombre)
+								.addPreferredGap(ComponentPlacement.RELATED)
+								.addComponent(txtNombre, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+						.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+							.addComponent(btnBuscar)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(chkHabilitado)
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+										.addComponent(lblApellido)
+										.addComponent(lblUsuario))
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+										.addComponent(txtUsuario, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(txtApellido, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))))
+					.addContainerGap(165, Short.MAX_VALUE))
+		);
+		gl_contentPane.setVerticalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblId)
+						.addComponent(txtId, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(11)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblDni)
+						.addComponent(txtDni, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(18)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblNombre)
+						.addComponent(txtNombre, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(18)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblApellido)
+						.addComponent(txtApellido, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(18)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblUsuario)
+						.addComponent(txtUsuario, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+					.addComponent(chkHabilitado)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(btnBuscar)
+					.addContainerGap())
+		);
+		contentPane.setLayout(gl_contentPane);
 	}
-	
+
 	protected void buscarClick() {
 		try {
 			this.mapearAForm(ctrl.getbydni(this.mapearDeForm()));
@@ -162,14 +174,14 @@ public class FormPersona extends JFrame {
 		}
 		
 	}
+	
 	private void mapearAForm(Persona p){
 		this.txtDni.setText(p.getDni());
 		this.txtNombre.setText(p.getNombre());
 		this.txtApellido.setText(p.getApellido());
-		this.chbHabilitado.setSelected(p.isHabilitado());
+		this.chkHabilitado.setSelected(p.isHabilitado());
 		this.txtId.setText(String.valueOf(p.getId()));
-		this.txtUsuario.setText(p.getUsuario() );
-		this.txtContrasena.setText(p.getContrasena());
+		this.txtUsuario.setText(p.getUsuario());
 	}
 	
 	private Persona mapearDeForm(){
@@ -180,12 +192,8 @@ public class FormPersona extends JFrame {
 		p.setDni(this.txtDni.getText());
 		p.setNombre(this.txtNombre.getText());
 		p.setApellido(this.txtApellido.getText());
-		p.setHabilitado(this.chbHabilitado.isSelected());
+		p.setHabilitado(this.chkHabilitado.isSelected());
 		p.setUsuario(this.txtUsuario.getText());
-		p.setContrasena(this.txtContrasena.getText());;;
 		return p;
 	}
-	
-	
-	
 }
