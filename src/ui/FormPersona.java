@@ -6,14 +6,22 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controlers.CtrlPersona;
+import entity.Persona;
+
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JCheckBox;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class FormPersona extends JFrame {
-
+	
+	private CtrlPersona ctrl = new CtrlPersona();
+	
 	private JPanel contentPane;
 	private JTextField txtNombre;
 	private JTextField txtApellido;
@@ -21,6 +29,7 @@ public class FormPersona extends JFrame {
 	private JTextField txtContrasena;
 	private JTextField txtDni;
 	private JTextField txtId;
+	private JCheckBox chbHabilitado;
 
 	/**
 	 * Launch the application.
@@ -50,22 +59,30 @@ public class FormPersona extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		Persona p = new Persona();
+		CtrlPersona ctrl = new CtrlPersona();
+		
+		
 		txtNombre = new JTextField();
+		txtNombre.setEnabled(false);
 		txtNombre.setBounds(129, 57, 144, 20);
 		contentPane.add(txtNombre);
 		txtNombre.setColumns(10);
 		
 		txtApellido = new JTextField();
+		txtApellido.setEnabled(false);
 		txtApellido.setBounds(129, 88, 144, 20);
 		contentPane.add(txtApellido);
 		txtApellido.setColumns(10);
 		
 		txtUsuario = new JTextField();
+		txtUsuario.setEnabled(false);
 		txtUsuario.setBounds(129, 155, 144, 20);
 		contentPane.add(txtUsuario);
 		txtUsuario.setColumns(10);
 		
 		txtContrasena = new JTextField();
+		txtContrasena.setEnabled(false);
 		txtContrasena.setBounds(129, 186, 144, 20);
 		contentPane.add(txtContrasena);
 		txtContrasena.setColumns(10);
@@ -82,11 +99,12 @@ public class FormPersona extends JFrame {
 		lblUsuario.setBounds(38, 161, 46, 14);
 		contentPane.add(lblUsuario);
 		
-		JLabel lblContrasena = new JLabel("Contrase\u00F1a");
+		JLabel lblContrasena = new JLabel("Contrasena");
 		lblContrasena.setBounds(38, 192, 76, 14);
 		contentPane.add(lblContrasena);
 		
 		JCheckBox chbHabilitado = new JCheckBox("Habilitado");
+		chbHabilitado.setSelected(true);
 		chbHabilitado.setBounds(38, 217, 97, 23);
 		contentPane.add(chbHabilitado);
 		
@@ -111,9 +129,17 @@ public class FormPersona extends JFrame {
 		contentPane.add(txtDni);
 		txtDni.setColumns(10);
 		
-		JButton btnGuardar = new JButton("Guardar");
-		btnGuardar.setBounds(129, 292, 144, 23);
-		contentPane.add(btnGuardar);
+		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				buscarClick();
+			}
+
+			
+		});
+		btnBuscar.setBounds(129, 292, 144, 23);
+		contentPane.add(btnBuscar);
 		
 		JLabel lblId = new JLabel("Id");
 		lblId.setBounds(38, 29, 46, 14);
@@ -124,5 +150,37 @@ public class FormPersona extends JFrame {
 		txtId.setBounds(129, 26, 144, 20);
 		contentPane.add(txtId);
 		txtId.setColumns(10);
+			
+		
+		
+		
 	}
+	
+	protected void buscarClick() {
+		this.mapearAForm(ctrl.getbydni(this.mapearDeForm()));
+		}
+	
+	private void mapearAForm(Persona p){
+		this.txtDni.setText(p.getDni());
+		this.txtNombre.setText(p.getNombre());
+		this.txtApellido.setText(p.getApellido());
+		this.chbHabilitado.setSelected(p.isHabilitado());
+		this.txtId.setText(String.valueOf(p.getId()));
+	}
+	
+	private Persona mapearDeForm(){
+		
+		Persona p = new Persona();
+		p.setDni(this.txtDni.getText());
+		p.setApellido(this.txtApellido.getText());
+		p.setNombre(this.txtNombre.getText());
+		p.setUsuario(this.txtUsuario.getText());
+		p.setContrasena(this.txtContrasena.getText());
+		p.setHabilitado(this.chbHabilitado.isSelected());
+		return p;
+		
+	}
+	
+	
+	
 }

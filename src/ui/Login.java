@@ -69,6 +69,8 @@ public class Login extends JFrame {
 		JButton btnIngresar = new JButton("Ingresar");
 		btnIngresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				Menu m = new Menu();
+				m.setVisible(true);
 				
 			}
 		});

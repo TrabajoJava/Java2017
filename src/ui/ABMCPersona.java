@@ -15,10 +15,14 @@ import javax.swing.JLabel;
 import javax.swing.border.BevelBorder;
 import javax.swing.table.DefaultTableModel;
 
+import controlers.CtrlPersona;
+import entity.Persona;
+import javax.swing.JScrollPane;
+
 public class ABMCPersona extends JFrame {
 
 	private JPanel contentPane;
-	private JTable tablaPersonas;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -41,14 +45,24 @@ public class ABMCPersona extends JFrame {
 	 */
 	public ABMCPersona() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 350, 292);
+		setBounds(100, 100, 604, 292);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		Persona p = new Persona();
+		CtrlPersona controlador = new CtrlPersona();
+		
 		JButton btnAgregar = new JButton("Agregar");
-		btnAgregar.setBounds(34, 210, 71, 23);
+		btnAgregar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				FormPersona fp = new FormPersona();
+				fp.setVisible(true);
+				
+			}
+		});
+		btnAgregar.setBounds(53, 210, 89, 23);
 		contentPane.add(btnAgregar);
 		
 		JButton btnModificar = new JButton("Modificar");
@@ -56,52 +70,36 @@ public class ABMCPersona extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btnModificar.setBounds(133, 210, 81, 23);
+		btnModificar.setBounds(170, 210, 89, 23);
 		contentPane.add(btnModificar);
 		
 		JButton btnEliminar = new JButton("Eliminar");
-		btnEliminar.setBounds(240, 210, 71, 23);
+		btnEliminar.setBounds(284, 210, 89, 23);
 		contentPane.add(btnEliminar);
 		
-		tablaPersonas = new JTable();
-		tablaPersonas.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-			},
-			new String[] {
-				"ID", "DNI", "Apellido", "Nombre", "Usuario", "Contrase\u00F1a", "Habilitado"
-			}
-		) {
-			Class[] columnTypes = new Class[] {
-				Integer.class, Float.class, Float.class, Float.class, Float.class, Float.class, Float.class
-			};
-			public Class getColumnClass(int columnIndex) {
-				return columnTypes[columnIndex];
+		
+		
+		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				FormPersona fp = new FormPersona();
+				fp.setVisible(true);
 			}
 		});
-		tablaPersonas.getColumnModel().getColumn(0).setPreferredWidth(35);
-		tablaPersonas.getColumnModel().getColumn(0).setMaxWidth(35);
-		tablaPersonas.getColumnModel().getColumn(1).setMaxWidth(80);
-		tablaPersonas.getColumnModel().getColumn(2).setMaxWidth(80);
-		tablaPersonas.getColumnModel().getColumn(3).setMaxWidth(80);
-		tablaPersonas.getColumnModel().getColumn(4).setMaxWidth(80);
-		tablaPersonas.getColumnModel().getColumn(5).setMaxWidth(80);
-		tablaPersonas.getColumnModel().getColumn(6).setMaxWidth(80);
-		tablaPersonas.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		tablaPersonas.setCellSelectionEnabled(true);
-		tablaPersonas.setToolTipText("");
-		tablaPersonas.setBounds(304, 145, -291, -131);
-		contentPane.add(tablaPersonas);
-		String[] columnNames = {"First Name",
-                "Last Name",
-                "Sport",
-                "# of Years",
-                "Vegetarian"};
+		btnBuscar.setBounds(391, 210, 89, 23);
+		contentPane.add(btnBuscar);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(21, 185, 532, -174);
+		contentPane.add(scrollPane);
+		
+		table = new JTable();
+		table.setBounds(21, 37, 532, 137);
+		contentPane.add(table);
+		
+
+	
+	
+	
 	}
 }

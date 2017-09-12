@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Menu extends JFrame {
 
@@ -43,6 +45,13 @@ public class Menu extends JFrame {
 		contentPane.add(btnAbmctipoelemento);
 
 		JButton btnAbmcpersona = new JButton("ABMCPersona");
+		btnAbmcpersona.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ABMCPersona pe = new ABMCPersona();
+				pe.setVisible(true);
+				
+			}
+		});
 		btnAbmcpersona.setBounds(165, 27, 140, 23);
 		contentPane.add(btnAbmcpersona);
 
