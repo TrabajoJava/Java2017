@@ -57,8 +57,8 @@ public class ABMCPersona extends JFrame {
 		JButton btnAgregar = new JButton("Agregar");
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				FormPersona fp = new FormPersona();
-				fp.setVisible(true);
+				FormAgregarPersona fagp = new FormAgregarPersona();
+				fagp.setVisible(true);
 				
 			}
 		});
