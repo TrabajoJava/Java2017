@@ -66,25 +66,21 @@ public class FormPersona extends JFrame {
 		
 		
 		txtNombre = new JTextField();
-		txtNombre.setEditable(false);
 		txtNombre.setBounds(129, 57, 144, 20);
 		contentPane.add(txtNombre);
 		txtNombre.setColumns(10);
 		
 		txtApellido = new JTextField();
-		txtApellido.setEditable(false);
 		txtApellido.setBounds(129, 88, 144, 20);
 		contentPane.add(txtApellido);
 		txtApellido.setColumns(10);
 		
 		txtUsuario = new JTextField();
-		txtUsuario.setEditable(false);
 		txtUsuario.setBounds(129, 155, 144, 20);
 		contentPane.add(txtUsuario);
 		txtUsuario.setColumns(10);
 		
 		txtContrasena = new JTextField();
-		txtContrasena.setEditable(false);
 		txtContrasena.setBounds(129, 186, 144, 20);
 		contentPane.add(txtContrasena);
 		txtContrasena.setColumns(10);
@@ -152,7 +148,6 @@ public class FormPersona extends JFrame {
 		contentPane.add(lblId);
 		
 		txtId = new JTextField();
-		txtId.setEditable(false);
 		txtId.setBounds(129, 26, 144, 20);
 		contentPane.add(txtId);
 		txtId.setColumns(10);
