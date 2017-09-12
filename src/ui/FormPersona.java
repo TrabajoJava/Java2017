@@ -17,6 +17,8 @@ import javax.swing.JRadioButton;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class FormPersona extends JFrame {
 	
@@ -64,25 +66,25 @@ public class FormPersona extends JFrame {
 		
 		
 		txtNombre = new JTextField();
-		txtNombre.setEnabled(false);
+		txtNombre.setEditable(false);
 		txtNombre.setBounds(129, 57, 144, 20);
 		contentPane.add(txtNombre);
 		txtNombre.setColumns(10);
 		
 		txtApellido = new JTextField();
-		txtApellido.setEnabled(false);
+		txtApellido.setEditable(false);
 		txtApellido.setBounds(129, 88, 144, 20);
 		contentPane.add(txtApellido);
 		txtApellido.setColumns(10);
 		
 		txtUsuario = new JTextField();
-		txtUsuario.setEnabled(false);
+		txtUsuario.setEditable(false);
 		txtUsuario.setBounds(129, 155, 144, 20);
 		contentPane.add(txtUsuario);
 		txtUsuario.setColumns(10);
 		
 		txtContrasena = new JTextField();
-		txtContrasena.setEnabled(false);
+		txtContrasena.setEditable(false);
 		txtContrasena.setBounds(129, 186, 144, 20);
 		contentPane.add(txtContrasena);
 		txtContrasena.setColumns(10);
@@ -130,9 +132,10 @@ public class FormPersona extends JFrame {
 		txtDni.setColumns(10);
 		
 		JButton btnBuscar = new JButton("Buscar");
-		btnBuscar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
+	
+		btnBuscar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
 				buscarClick();
 			}
 
@@ -146,7 +149,7 @@ public class FormPersona extends JFrame {
 		contentPane.add(lblId);
 		
 		txtId = new JTextField();
-		txtId.setEnabled(false);
+		txtId.setEditable(false);
 		txtId.setBounds(129, 26, 144, 20);
 		contentPane.add(txtId);
 		txtId.setColumns(10);
