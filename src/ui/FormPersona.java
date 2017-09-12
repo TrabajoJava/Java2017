@@ -12,6 +12,7 @@ import entity.Persona;
 
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JCheckBox;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
@@ -32,6 +33,7 @@ public class FormPersona extends JFrame {
 	private JTextField txtDni;
 	private JTextField txtId;
 	private JCheckBox chbHabilitado;
+	private JButton btnBuscar;
 
 	/**
 	 * Launch the application.
@@ -61,8 +63,7 @@ public class FormPersona extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		Persona p = new Persona();
-		CtrlPersona ctrl = new CtrlPersona();
+		
 		
 		
 		txtNombre = new JTextField();
@@ -127,11 +128,7 @@ public class FormPersona extends JFrame {
 		contentPane.add(txtDni);
 		txtDni.setColumns(10);
 		
-		JButton btnBuscar = new JButton("Buscar");
-		btnBuscar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
+		btnBuscar = new JButton("Buscar");
 		btnBuscar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -158,28 +155,35 @@ public class FormPersona extends JFrame {
 	}
 	
 	protected void buscarClick() {
-		this.mapearAForm(ctrl.getbydni(this.mapearDeForm()));
+		try {
+			this.mapearAForm(ctrl.getbydni(this.mapearDeForm()));
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(this, e.getMessage());
 		}
-	
+		
+	}
 	private void mapearAForm(Persona p){
 		this.txtDni.setText(p.getDni());
 		this.txtNombre.setText(p.getNombre());
 		this.txtApellido.setText(p.getApellido());
 		this.chbHabilitado.setSelected(p.isHabilitado());
 		this.txtId.setText(String.valueOf(p.getId()));
+		this.txtUsuario.setText(p.getUsuario() );
+		this.txtContrasena.setText(p.getContrasena());
 	}
 	
 	private Persona mapearDeForm(){
-		
-		Persona p = new Persona();
+		Persona p=new Persona();
+		if(!this.txtId.getText().isEmpty()){
+			p.setId(Integer.parseInt(this.txtId.getText()));
+		}
 		p.setDni(this.txtDni.getText());
-		p.setApellido(this.txtApellido.getText());
 		p.setNombre(this.txtNombre.getText());
-		p.setUsuario(this.txtUsuario.getText());
-		p.setContrasena(this.txtContrasena.getText());
+		p.setApellido(this.txtApellido.getText());
 		p.setHabilitado(this.chbHabilitado.isSelected());
+		p.setUsuario(this.txtUsuario.getText());
+		p.setContrasena(this.txtContrasena.getText());;;
 		return p;
-		
 	}
 	
 	
