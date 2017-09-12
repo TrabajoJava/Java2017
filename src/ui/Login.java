@@ -2,13 +2,16 @@ package ui;
 
 import java.awt.EventQueue;
 
-import javax.swing.JInternalFrame;
-import javax.swing.JButton;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import javax.swing.JFrame;
 import javax.swing.JDesktopPane;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JPanel;
 
-public class Login extends JInternalFrame {
+public class Login {
+
+	private JFrame frame;
 
 	/**
 	 * Launch the application.
@@ -17,10 +20,8 @@ public class Login extends JInternalFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Login frame = new Login();
-					frame.setVisible(true);
-					
-					
+					Login window = new Login();
+					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -29,35 +30,36 @@ public class Login extends JInternalFrame {
 	}
 
 	/**
-	 * Create the frame.
+	 * Create the application.
 	 */
 	public Login() {
-		setClosable(true);
-		setDefaultCloseOperation(JInternalFrame.HIDE_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		getContentPane().setLayout(null);
-		
-		JDesktopPane desktopPane = new JDesktopPane();
-		desktopPane.setBounds(221, 96, 1, 1);
-		getContentPane().add(desktopPane);
-		
-		JButton btnIngresar = new JButton("Ingresar");
-		btnIngresar.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				ABMCPersonaDesktop ps= new ABMCPersonaDesktop();
-				desktopPane.add(ps);
-				ps.setVisible(true);
-					
-			}
-		});
-		btnIngresar.setBounds(43, 93, 89, 23);
-		getContentPane().add(btnIngresar);
-		
-	
-		
-		
-
+		initialize();
 	}
 
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JButton btnIngresar = new JButton("Ingresar");
+		btnIngresar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				MainWindow mw= new MainWindow();
+				
+				mw.setVisible(true);
+				
+			}
+		});
+		btnIngresar.setBounds(180, 173, 89, 23);
+		frame.getContentPane().add(btnIngresar);
+		
+		
+		
+		
+	}
 }

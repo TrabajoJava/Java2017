@@ -13,7 +13,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JDesktopPane;
 import java.awt.BorderLayout;
 
-public class MainWindow {
+public class MainWindow extends JFrame{
 
 	private JFrame frame;
 	private JDesktopPane desktopPane;
@@ -69,8 +69,8 @@ public class MainWindow {
 	}
 
 	protected void loginClick() {
-		Login lg= new Login();
-		desktopPane.add(lg);
-		lg.setVisible(true);
+		ABMCPersonaDesktop pd= new ABMCPersonaDesktop();
+		desktopPane.add(pd);
+		pd.setVisible(true);
 	}
 }
