@@ -132,7 +132,10 @@ public class FormPersona extends JFrame {
 		txtDni.setColumns(10);
 		
 		JButton btnBuscar = new JButton("Buscar");
-	
+		btnBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		btnBuscar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
