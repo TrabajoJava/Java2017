@@ -200,6 +200,7 @@ public class FormAgregarPersona extends JFrame {
 		this.txtApellido.setText(p.getApellido());
 		this.chkHabilitado.setSelected(p.isHabilitado());
 		this.txtId.setText(String.valueOf(p.getId()));
+		this.txtUsuario.setText(p.getUsuario());
 		
 	}
 	
@@ -213,6 +214,7 @@ public class FormAgregarPersona extends JFrame {
 		p.setApellido(this.txtApellido.getText());
 		p.setHabilitado(this.chkHabilitado.isSelected());
 		p.setContrasena(this.txtContrasena.getText());
+		p.setUsuario(this.txtUsuario.getText());
 		return p;
 	}
 
