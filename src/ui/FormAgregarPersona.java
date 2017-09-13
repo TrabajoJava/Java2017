@@ -42,28 +42,9 @@ public class FormAgregarPersona extends JFrame {
 
 	
 
-	/**
-	 * Launch the application.
-	 */
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					FormAgregarPersona frame = new FormAgregarPersona();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
-
-	/**
-	 * Create the frame.
-	 */
 	public FormAgregarPersona() {
-
-		setDefaultCloseOperation(JInternalFrame.HIDE_ON_CLOSE);
+		setTitle("Agrega Persona");
+		setDefaultCloseOperation(JInternalFrame.WHEN_IN_FOCUSED_WINDOW);
 		setBounds(100, 100, 328, 368);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

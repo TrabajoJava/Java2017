@@ -37,27 +37,9 @@ public class FormPersona extends JFrame {
 	private JLabel lblUsuario;
 	private JTextField txtUsuario;
 
-	/**
-	 * Launch the application.
-	 */
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					FormPersona frame = new FormPersona();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
 
-	/**
-	 * Create the frame.
-	 */
 	public FormPersona() {
-	
+		setTitle("Busca Persona");
 		setDefaultCloseOperation(JInternalFrame.WHEN_IN_FOCUSED_WINDOW);
 		setBounds(100, 100, 328, 300);
 		contentPane = new JPanel();
