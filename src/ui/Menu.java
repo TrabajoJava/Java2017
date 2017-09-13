@@ -41,6 +41,13 @@ public class Menu extends JFrame {
 		contentPane.add(btnNewButton);
 
 		JButton btnAbmctipoelemento = new JButton("ABMCTipoElemento");
+		btnAbmctipoelemento.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ABMCTipo ti = new ABMCTipo();
+				ti.setVisible(true);
+				
+			}
+		});
 		btnAbmctipoelemento.setBounds(165, 131, 140, 23);
 		contentPane.add(btnAbmctipoelemento);
 
