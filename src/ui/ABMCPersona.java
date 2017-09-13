@@ -48,7 +48,7 @@ public class ABMCPersona extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 0, 478, 82);
+		scrollPane.setBounds(10, 0, 519, 87);
 		contentPane.add(scrollPane);
 		
 		Persona p = new Persona();
@@ -100,8 +100,16 @@ public class ABMCPersona extends JFrame {
 		JButton btnModificar = new JButton("Modificar");
 		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				Persona p = new Persona();
+				int fila;
+				fila = table.getSelectedRow();
+				int idPersona;
+				idPersona =  Integer.parseInt((String)table.getModel().getValueAt(fila,0));
+				FormModificarPersona fmp = new FormModificarPersona(idPersona);
+				fmp.setVisible(true);
 			}
 		});
+		
 		btnModificar.setBounds(170, 210, 89, 23);
 		contentPane.add(btnModificar);
 		
@@ -125,8 +133,8 @@ public class ABMCPersona extends JFrame {
 		
 
 		
-	
+		}
 	
 	
 	}
-}
+

@@ -41,6 +41,12 @@ public class CtrlPersona {
 		return dataPer.getByDni(per);
 	}
 	
+	public Persona getbyid(int id){
+		
+		return dataPer.getbyid(id);
+		
+	}
+	
 	public void update(Persona per){
 		
 		dataPer.update(per);
