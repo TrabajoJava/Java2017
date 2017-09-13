@@ -109,7 +109,7 @@ public class FormAgregarElemento extends JFrame {
 	}
 	
 	private void mapearAForm(Elemento el){
-		this.txtNomElemento.setText(el.getNombretipo());
+		this.txtNomElemento.setText(el.getNombreElemento());
 		this.txtIdElemento.setText(String.valueOf(el.getIdElemento()));
 		this.txtIdTipo.setText(String.valueOf(el.getIdtipo()));
 	

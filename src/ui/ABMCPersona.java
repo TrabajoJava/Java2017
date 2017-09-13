@@ -28,6 +28,8 @@ import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.border.CompoundBorder;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class ABMCPersona extends JFrame {
 
@@ -50,6 +52,8 @@ public class ABMCPersona extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 0, 519, 87);
 		contentPane.add(scrollPane);
+		
+		
 		
 		Persona p = new Persona();
 		CtrlPersona controlador = new CtrlPersona();
@@ -80,8 +84,8 @@ public class ABMCPersona extends JFrame {
 		}
 		
 		table = new JTable();
-		table.setModel(
-				new DefaultTableModel(datos,nombreColumnas));
+		DefaultTableModel modelo = new DefaultTableModel(datos,nombreColumnas);
+		table.setModel(modelo);
 		
 		scrollPane.setViewportView(table);
 
@@ -114,6 +118,24 @@ public class ABMCPersona extends JFrame {
 		contentPane.add(btnModificar);
 		
 		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent arg0) {
+			int fila;
+			fila = table.getSelectedRow();
+			String dni;
+			dni =  (String) table.getModel().getValueAt(fila,3);
+			Persona per = new Persona();
+			per.setDni(dni);
+			CtrlPersona ctrlper =new CtrlPersona();
+			ctrlper.deletebydni(per);
+			
+
+			
+			
+			
+			
+		}
+	});
 		btnEliminar.setBounds(284, 210, 89, 23);
 		contentPane.add(btnEliminar);
 		
@@ -129,9 +151,6 @@ public class ABMCPersona extends JFrame {
 		btnBuscar.setBounds(391, 210, 89, 23);
 		contentPane.add(btnBuscar);
 		
-		
-		
-
 		
 		}
 	

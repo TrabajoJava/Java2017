@@ -44,6 +44,8 @@ public class FormModificarPersona extends JFrame {
 
 	public FormModificarPersona(int idPersona) {
 	
+	
+		
 		setTitle("Modifica Persona");
 		setDefaultCloseOperation(JInternalFrame.WHEN_IN_FOCUSED_WINDOW);
 		setBounds(100, 100, 412, 368);
@@ -51,9 +53,6 @@ public class FormModificarPersona extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
-		Persona p = new Persona();
-		p = ctrlper.getbyid(idPersona);
-		this.mapearAForm(p);
 		
 		JLabel lblDni = new JLabel("DNI");
 		
@@ -166,25 +165,27 @@ public class FormModificarPersona extends JFrame {
 					.addContainerGap(62, Short.MAX_VALUE))
 		);
 		contentPane.setLayout(gl_contentPane);
+		Persona p = new Persona();
+		p = ctrlper.getbyid(idPersona);
+		this.mapearAForm(p);
 	}
 	
 
 	protected void ModificarClick() {
-		
-		this.mapearDeForm();
+		Persona p = this.mapearDeForm();
 		try{
-			
+			ctrlper.update(p);
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(this, e.getMessage());
 		}
-		//this.txtId.setText(String.valueOf(p.getId()));
+		this.txtId.setText(String.valueOf(p.getId()));
 		
 	}
-	
 	
 	private void mapearAForm(Persona p){
 		this.txtDni.setText(p.getDni());
 		this.txtNombre.setText(p.getNombre());
+		this.txtContrasena.setText(p.getContrasena());
 		this.txtApellido.setText(p.getApellido());
 		this.chkHabilitado.setSelected(p.isHabilitado());
 		this.txtId.setText(String.valueOf(p.getId()));

@@ -47,6 +47,12 @@ public class ABMCTipo extends JFrame {
 		contentPane.add(btnEliminar);
 		
 		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				FormTipoElemento fte = new FormTipoElemento();
+				fte.setVisible(true);
+			}
+		});
 		btnBuscar.setBounds(307, 215, 89, 23);
 		contentPane.add(btnBuscar);
 	}
