@@ -16,7 +16,7 @@ public class DataLogin {
 		
 		try{
 			stmt = FactoryConexion.getInstancia().getConn().prepareStatement(
-					"select id, nombre, apellido, dni, habilitado, user, pass FROM personasTP where user=? and pass = ?");
+					"select id, nombre, apellido, dni, habilitado, usuario, contrasena FROM personas where usuario=? and contrasena = ?");
 		stmt.setString(1, per.getUsuario());
 		stmt.setString(2, per.getContrasena());
 		rs = stmt.executeQuery();
@@ -27,8 +27,8 @@ public class DataLogin {
 				p.setNombre(rs.getString("nombre"));
 				p.setDni(rs.getString("dni"));
 				p.setHabilitado(rs.getBoolean("habilitado"));
-				p.setUsuario(rs.getString("user"));
-				p.setContrasena(rs.getString("pass"));
+				p.setUsuario(rs.getString("usuario"));
+				p.setContrasena(rs.getString("contrasena"));
 			}
 		} catch (SQLException e){
 			e.printStackTrace();
