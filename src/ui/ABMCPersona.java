@@ -1,26 +1,33 @@
-                        package ui;
+package ui;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.TableModel;
+
+import controlers.CtrlPersona;
+import data.DataPersona;
+import entity.Persona;
+import tablas.tablaPersonas;
+
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import java.awt.Font;
+import java.awt.Color;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
-import javax.swing.JTable;
-import javax.swing.JLabel;
-import javax.swing.border.BevelBorder;
-import javax.swing.table.DefaultTableModel;
-
-import controlers.CtrlPersona;
-import entity.Persona;
+import javax.swing.SwingConstants;
+import javax.swing.JTextArea;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
-import tablas.tablaPersonas;
+import javax.swing.border.CompoundBorder;
+import javax.swing.table.DefaultTableModel;
 
 public class ABMCPersona extends JFrame {
 
@@ -34,19 +41,22 @@ public class ABMCPersona extends JFrame {
 	
 	public ABMCPersona() {
 		setTitle("Persona");
-		setDefaultCloseOperation(JInternalFrame.WHEN_IN_FOCUSED_WINDOW);
-		setBounds(100, 100, 604, 292);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 555, 379);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 0, 478, 260);
+		contentPane.add(scrollPane);
 		
 		Persona p = new Persona();
 		CtrlPersona controlador = new CtrlPersona();
 		
 		personas = controlador.getall();
 		
-		Object nombreColumnas[] = { "ID", "Nombre", "Apellido", "DNI", "Habilitado", "Usuario", "Contrase�a"};
+		Object nombreColumnas[] = { "ID", "Nombre", "Apellido", "DNI", "Habilitado", "Usuario", "Contrasena"};
 		Object datos[][] = new String[personas.size()][nombreColumnas.length]; 
 		
 
@@ -69,7 +79,12 @@ public class ABMCPersona extends JFrame {
 		
 		}
 		
+		table = new JTable();
+		table.setModel(
+				new DefaultTableModel(datos,nombreColumnas));
 		
+		scrollPane.setViewportView(table);
+
 		
 		JButton btnAgregar = new JButton("Agregar");
 		btnAgregar.addActionListener(new ActionListener() {
@@ -106,17 +121,10 @@ public class ABMCPersona extends JFrame {
 		btnBuscar.setBounds(391, 210, 89, 23);
 		contentPane.add(btnBuscar);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(21, 185, 532, -174);
-		contentPane.add(scrollPane);
+		
 		
 
-		table = new JTable();
-		table.setModel(
-				new DefaultTableModel(datos,nombreColumnas));
 		
-		scrollPane.setViewportView(table);
-
 	
 	
 	
