@@ -42,8 +42,8 @@ public class FormModificarPersona extends JFrame {
 
 	
 
-	public FormModificarPersona() {
-		
+	public FormModificarPersona(int idPersona) {
+	
 		setTitle("Modifica Persona");
 		setDefaultCloseOperation(JInternalFrame.WHEN_IN_FOCUSED_WINDOW);
 		setBounds(100, 100, 412, 368);
@@ -164,9 +164,6 @@ public class FormModificarPersona extends JFrame {
 		contentPane.setLayout(gl_contentPane);
 	}
 	
-	public FormModificarPersona(int idPersona) {
-		// TODO Auto-generated constructor stub
-	}
 
 	protected void ModificarClick() {
 		Persona p = new Persona();
