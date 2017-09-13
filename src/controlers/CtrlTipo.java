@@ -29,6 +29,11 @@ public class CtrlTipo {
 		return dataTipo.getbyId(te);
 	}
 	
-
+public ArrayList<TipoElemento> getalltipos(){
+		
+		tipo = dataTipo.getAllTipos();
+		return tipo;
+		
+	}
 
 }
