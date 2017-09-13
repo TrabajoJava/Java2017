@@ -51,6 +51,10 @@ public class FormModificarPersona extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
+		Persona p = new Persona();
+		p = ctrlper.getbyid(idPersona);
+		this.mapearAForm(p);
+		
 		JLabel lblDni = new JLabel("DNI");
 		
 		txtDni = new JTextField();
@@ -166,15 +170,14 @@ public class FormModificarPersona extends JFrame {
 	
 
 	protected void ModificarClick() {
-		Persona p = new Persona();
-		p = ctrlper.getbyid(idPersona);
-		this.mapearAForm(p);
+		
+		this.mapearDeForm();
 		try{
 			
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(this, e.getMessage());
 		}
-		this.txtId.setText(String.valueOf(p.getId()));
+		//this.txtId.setText(String.valueOf(p.getId()));
 		
 	}
 	
