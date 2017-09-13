@@ -42,6 +42,8 @@ public class DataTipoElemento {
 		
 		
 	}
+	
+	
 	public void add(TipoElemento lib){
 		PreparedStatement stmt = null;
 		ResultSet keyResultSet=null;
@@ -70,6 +72,42 @@ public class DataTipoElemento {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	public TipoElemento getbyId(TipoElemento te){
+		PreparedStatement stmt=null;
+		ResultSet rs = null;
+		int idt = te.getIdtipo();
+		TipoElemento t = null;
+		
+		try {
+			stmt = FactoryConexion.getInstancia().getConn().prepareStatement("select id_tipo, nombre_tipo, cantmaxreservaspendientes from tipoelementos where id_tipo=?");
+			stmt.setInt(1, idt);
+			rs = stmt.executeQuery();
+			if(rs!=null && rs.next()){	
+				t = new TipoElemento();				
+				t.setIdtipo(rs.getInt("id_tipo"));
+				t.setNombretipo(rs.getString("nombre_tipo"));
+				t.setCantmaxreservaspendientes(rs.getInt("cantmaxreservaspendientes"));
+
+										}
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+			try {
+				if(rs!=null) rs.close();
+				if(stmt!=null)stmt.close();
+				FactoryConexion.getInstancia().releaseConn();
+			} catch (SQLException e) {
+			
+				e.printStackTrace();
+			}
+			return t;
+}
+
+
 	
 	
 	

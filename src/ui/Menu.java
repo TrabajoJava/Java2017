@@ -38,7 +38,7 @@ public class Menu extends JFrame {
 		JButton btnAbmctipoelemento = new JButton("ABMCTipoElemento");
 		btnAbmctipoelemento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ABMCTipo ti = new ABMCTipo();
+				FormTipoElemento ti = new FormTipoElemento();
 				ti.setVisible(true);
 				
 			}

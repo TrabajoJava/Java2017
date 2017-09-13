@@ -32,6 +32,10 @@ public class TipoElemento {
 		this.cantmaxreservaspendientes = cantmaxreservaspendientes;
 	}
 	
-	public TipoElemento(){};
+	public TipoElemento() {
+		// TODO Auto-generated constructor stub
+	}
+	
+
 	
 }

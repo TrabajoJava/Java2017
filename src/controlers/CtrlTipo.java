@@ -3,6 +3,7 @@ package controlers;
 import java.util.ArrayList;
 
 import data.DataTipoElemento;
+import entity.Persona;
 import entity.TipoElemento;
 
 
@@ -22,5 +23,12 @@ public class CtrlTipo {
 		dataTipo.add(tipo);
 	}
 	
+
+	public TipoElemento getbyId(TipoElemento te){
+		
+		return dataTipo.getbyId(te);
+	}
+	
+
 
 }
