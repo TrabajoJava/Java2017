@@ -128,8 +128,11 @@ public class ABMCPersona extends JFrame {
 			per.setDni(dni);
 			CtrlPersona ctrlper =new CtrlPersona();
 			ctrlper.deletebydni(per);
+			dispose(); //cierra ventana
 			
-
+			ABMCPersona pr = new ABMCPersona();
+			pr.setVisible(true);
+			
 			
 			
 			
