@@ -1,21 +1,21 @@
 package ui;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
-public class ABMCTipo extends JFrame {
-
+public class ABMCElemento extends JFrame {
+	
 	private JPanel contentPane;
 
-	public ABMCTipo() {
-		setTitle("Tipo");
+	public ABMCElemento() {
+		setTitle("Elemento");
 		setDefaultCloseOperation(JInternalFrame.WHEN_IN_FOCUSED_WINDOW);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -26,7 +26,7 @@ public class ABMCTipo extends JFrame {
 		JButton btnAgregar = new JButton("Agregar");
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				FormAgregarTipo fagt = new FormAgregarTipo();
+				FormAgregarElemento fagt = new FormAgregarElemento();
 				fagt.setVisible(true);
 				
 			}

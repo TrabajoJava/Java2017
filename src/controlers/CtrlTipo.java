@@ -22,5 +22,5 @@ public class CtrlTipo {
 		dataTipo.add(tipo);
 	}
 	
-	/*quiero que me aparezca este*/
+
 }

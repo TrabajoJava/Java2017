@@ -24,9 +24,16 @@ public class Menu extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JButton btnNewButton = new JButton("ABMCElemento");
-		btnNewButton.setBounds(165, 78, 140, 23);
-		contentPane.add(btnNewButton);
+		JButton btnAbmcelemento = new JButton("ABMCElemento");
+		btnAbmcelemento.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ABMCElemento el = new ABMCElemento();
+				el.setVisible(true);
+				
+			}
+		});
+		btnAbmcelemento.setBounds(165, 78, 140, 23);
+		contentPane.add(btnAbmcelemento);
 
 		JButton btnAbmctipoelemento = new JButton("ABMCTipoElemento");
 		btnAbmctipoelemento.addActionListener(new ActionListener() {
@@ -50,8 +57,8 @@ public class Menu extends JFrame {
 		btnAbmcpersona.setBounds(165, 27, 140, 23);
 		contentPane.add(btnAbmcpersona);
 
-		JButton btnNewButton_1 = new JButton("ABMCReserva");
-		btnNewButton_1.setBounds(165, 186, 140, 23);
-		contentPane.add(btnNewButton_1);
+		JButton btnAbmcreserva = new JButton("ABMCReserva");
+		btnAbmcreserva.setBounds(165, 186, 140, 23);
+		contentPane.add(btnAbmcreserva);
 	}
 }

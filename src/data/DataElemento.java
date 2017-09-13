@@ -77,10 +77,12 @@ public class DataElemento {
 				ResultSet keyResultSet=null;
 				
 				try {
-					stmt = FactoryConexion.getInstancia().getConn().prepareStatement("insert into elementos(nombre_elemento,id_tipo) values(?,?)"
+					stmt = FactoryConexion.getInstancia().getConn().prepareStatement("insert into elementos(id_elemento,nombre_elemento,id_tipo) values(?,?,?)"
 							,PreparedStatement.RETURN_GENERATED_KEYS);
-					stmt.setInt(2, lib.getIdtipo());
-					stmt.setString(1, lib.getNombreElemento());
+					stmt.setInt(1, lib.getIdElemento());
+					stmt.setString(2, lib.getNombreElemento());
+					stmt.setInt(3, lib.getIdtipo());
+					
 					//Aca revisar, le mando o no le mando el id? (Autoincremental)
 					stmt.executeUpdate();
 					keyResultSet=stmt.getGeneratedKeys();

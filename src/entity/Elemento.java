@@ -31,6 +31,11 @@ public class Elemento extends TipoElemento {
 				// TODO Auto-generated constructor stub
 			}
 			
+			public Elemento() {
+				super();
+				// TODO Auto-generated constructor stub
+			}
+			
 			
 	
 }

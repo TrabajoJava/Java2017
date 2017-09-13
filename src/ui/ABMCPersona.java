@@ -48,7 +48,7 @@ public class ABMCPersona extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 0, 478, 260);
+		scrollPane.setBounds(10, 0, 478, 82);
 		contentPane.add(scrollPane);
 		
 		Persona p = new Persona();
