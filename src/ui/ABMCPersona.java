@@ -1,4 +1,4 @@
-package ui;
+                        package ui;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 import javax.swing.JLabel;
@@ -18,16 +19,21 @@ import javax.swing.table.DefaultTableModel;
 import controlers.CtrlPersona;
 import entity.Persona;
 import javax.swing.JScrollPane;
+import tablas.tablaPersonas;
 
 public class ABMCPersona extends JFrame {
 
+	CtrlPersona ctrlper = new CtrlPersona();
 	private JPanel contentPane;
 	private JTable table;
 
+
+	ArrayList<Persona> personas = null; 
+	
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -38,7 +44,7 @@ public class ABMCPersona extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the frame.
@@ -53,6 +59,33 @@ public class ABMCPersona extends JFrame {
 		
 		Persona p = new Persona();
 		CtrlPersona controlador = new CtrlPersona();
+		
+		personas = controlador.getall();
+		
+		Object nombreColumnas[] = { "ID", "Nombre", "Apellido", "DNI", "Habilitado", "Usuario", "Contraseña"};
+		Object datos[][] = new String[personas.size()][nombreColumnas.length]; 
+		
+
+		for (int x = 0; x < personas.size(); x++) {
+			
+			datos [x][0] = String.valueOf(personas.get(x).getId());
+			
+			datos [x][1] = personas.get(x).getNombre();
+			
+			datos [x][2] = personas.get(x).getApellido();
+			
+			datos [x][3] = personas.get(x).getDni();
+			
+			datos [x][4] = String.valueOf(personas.get(x).isHabilitado());
+			
+			datos [x][5] = personas.get(x).getUsuario();
+			
+			datos [x][6] = personas.get(x).getContrasena();
+			
+		
+		}
+		
+		
 		
 		JButton btnAgregar = new JButton("Agregar");
 		btnAgregar.addActionListener(new ActionListener() {
@@ -93,10 +126,12 @@ public class ABMCPersona extends JFrame {
 		scrollPane.setBounds(21, 185, 532, -174);
 		contentPane.add(scrollPane);
 		
+
 		table = new JTable();
-		table.setBounds(21, 37, 532, 137);
-		contentPane.add(table);
+		table.setModel(
+				new DefaultTableModel(datos,nombreColumnas));
 		
+		scrollPane.setViewportView(table);
 
 	
 	
