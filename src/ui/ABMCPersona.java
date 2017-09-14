@@ -11,7 +11,7 @@ import javax.swing.table.TableModel;
 import controlers.CtrlPersona;
 import data.DataPersona;
 import entity.Persona;
-import tablas.tablaPersonas;
+
 
 import javax.swing.JTable;
 import javax.swing.JTextField;

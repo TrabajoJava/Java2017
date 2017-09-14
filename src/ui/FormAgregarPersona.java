@@ -45,7 +45,7 @@ public class FormAgregarPersona extends JFrame {
 	public FormAgregarPersona() {
 		setTitle("Agrega Persona");
 		setDefaultCloseOperation(JInternalFrame.WHEN_IN_FOCUSED_WINDOW);
-		setBounds(100, 100, 328, 368);
+		setBounds(100, 100, 399, 368);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -74,6 +74,7 @@ public class FormAgregarPersona extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				agregarClick();
 				JOptionPane.showMessageDialog(contentPane, "Persona agregada con exito");
+				dispose();
 		
 			}
 		});
