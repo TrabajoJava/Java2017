@@ -62,6 +62,13 @@ public class ABMCReserva extends JFrame {
 		contentPane.add(btnAgregar);
 		
 		JButton btnMisReservas = new JButton("Mis reservas");
+		btnMisReservas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				MisReservas mr = new MisReservas();
+				mr.setVisible(true);
+				
+			}
+		});
 		btnMisReservas.setBounds(73, 98, 158, 23);
 		contentPane.add(btnMisReservas);
 		

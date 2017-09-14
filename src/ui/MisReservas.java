@@ -4,16 +4,16 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.TableModel;
 
-import controlers.CtrlElemento;
 import controlers.CtrlPersona;
-import data.DataElemento;
-import entity.Elemento;
+import controlers.CtrlReserva;
+import data.DataReserva;
 import entity.Persona;
+import entity.Reserva;
+
 
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -34,21 +34,21 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class FormDisponibles extends JFrame {
+public class MisReservas extends JFrame {
 
-	CtrlElemento ctrlele = new CtrlElemento();
+	CtrlReserva ctrlres = new CtrlReserva();
 	private JPanel contentPane;
 	private JTable table;
 	
-	ArrayList<Elemento> elementos = null; 
-	private JTextField txtDetalle;
+	ArrayList<Reserva> reservas = null; 
 
-
-	
-	public FormDisponibles() {
-		setTitle("Elementos");
+	/**
+	 * Create the frame.
+	 */
+	public MisReservas() {
+		setTitle("Mis reservas");
 		setDefaultCloseOperation(JInternalFrame.WHEN_IN_FOCUSED_WINDOW);
-		setBounds(100, 100, 454, 306);
+		setBounds(100, 100, 555, 284);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -57,22 +57,27 @@ public class FormDisponibles extends JFrame {
 		scrollPane.setBounds(10, 0, 519, 133);
 		contentPane.add(scrollPane);
 		
-		Elemento ele = new Elemento();
-		CtrlElemento controlador = new CtrlElemento();
+
+		Reserva re = new Reserva();
+		CtrlReserva controlador = new CtrlReserva();
 		
-		elementos = controlador.getAll();
+		reservas = controlador.getMisReservas();
 		
-		Object nombreColumnas[] = { "Id Elemento", "Nombre Elemento"};
-		Object datos[][] = new String[elementos.size()][nombreColumnas.length]; 
+		Object nombreColumnas[] = { "id Elemento", "id Persona", "fecha inicio", " fecha fin", "detalle"};
+		Object datos[][] = new String[reservas.size()][nombreColumnas.length]; 
 		
 
-		for (int x = 0; x < elementos.size(); x++) {
+		for (int x = 0; x < reservas.size(); x++) {
 			
-			datos [x][0] = String.valueOf(elementos.get(x).getIdElemento());
+			datos [x][0] = String.valueOf(reservas.get(x).getId_elemento());
 			
-			datos [x][1] = elementos.get(x).getNombreElemento();	
-		
-	
+			datos [x][1] = String.valueOf(reservas.get(x).getId_persona());
+			
+			datos [x][2] = String.valueOf(reservas.get(x).getFecha_inicio());
+			
+			datos [x][3] = String.valueOf(reservas.get(x).getFecha_fin());
+			
+			datos [x][4] = reservas.get(x).getDetalle();
 		
 		}
 		
@@ -81,22 +86,11 @@ public class FormDisponibles extends JFrame {
 		table.setModel(modelo);
 		
 		scrollPane.setViewportView(table);
+		
+		JButton btnCancelarReserva = new JButton("Cancelar reserva");
+		btnCancelarReserva.setBounds(210, 179, 122, 23);
+		contentPane.add(btnCancelarReserva);
 
-	
-		
-		JLabel lblIngreseDetalle = new JLabel("Ingrese detalle:");
-		lblIngreseDetalle.setBounds(22, 177, 95, 14);
-		contentPane.add(lblIngreseDetalle);
-		
-		JButton btnReservar = new JButton("Reservar");
-		btnReservar.setBounds(316, 227, 89, 23);
-		contentPane.add(btnReservar);
-		
-		txtDetalle = new JTextField();
-		txtDetalle.setBounds(110, 174, 295, 20);
-		contentPane.add(txtDetalle);
-		txtDetalle.setColumns(10);
-		
 		
 	}
 }

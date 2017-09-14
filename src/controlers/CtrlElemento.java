@@ -23,5 +23,17 @@ public class CtrlElemento {
 		dataElemento.add(elemento);
 	}
 	
+	public ArrayList<Elemento> getAll()
+	{
+		return dataElemento.getAll();
+		
+	}
+	
+	
+	/*public ArrayList<Elemento> getAllbytipo(int idTipo){
+		
+		return dataElemento.getAllbyTipo(idTipo);
+				
+	}*/
 	
 }
