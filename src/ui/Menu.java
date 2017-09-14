@@ -58,6 +58,13 @@ public class Menu extends JFrame {
 		contentPane.add(btnAbmcpersona);
 
 		JButton btnAbmcreserva = new JButton("Reservas");
+		btnAbmcreserva.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ABMCReserva ar = new ABMCReserva();
+				ar.setVisible(true);
+				
+			}
+		});
 		btnAbmcreserva.setBounds(124, 186, 181, 23);
 		contentPane.add(btnAbmcreserva);
 	}
