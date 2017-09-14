@@ -13,8 +13,13 @@ import java.awt.event.ActionEvent;
 
 public class Menu extends JFrame {
 
+	public int idPersona;
 	private JPanel contentPane;
 
+	public void setIdPersona(int idPersona) {
+		this.idPersona = idPersona;
+	}
+	
 	public Menu() {
 		setTitle("Menu");
 		setDefaultCloseOperation(JInternalFrame.WHEN_IN_FOCUSED_WINDOW);
@@ -62,6 +67,8 @@ public class Menu extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				ABMCReserva ar = new ABMCReserva();
 				ar.setVisible(true);
+				ar.setIdPersona(idPersona);
+				
 				
 			}
 		});

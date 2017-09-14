@@ -42,6 +42,48 @@ public class DataReserva {
 			return res;		
 			}
 	
+	
+	
+	
+	public ArrayList<Reserva> getMisReservas(int idPersona){
+		PreparedStatement stmt=null;
+		ResultSet rs=null;
+		ArrayList<Reserva> res= new ArrayList<Reserva>();
+		
+		try {
+			stmt = FactoryConexion.getInstancia().getConn().prepareStatement("select * from reservas where id_persona = ?");
+			stmt.setInt(1, idPersona);
+			rs = stmt.executeQuery();
+			if(rs!=null){
+				while(rs.next()){					
+				Reserva r=new Reserva();
+				r.setId_elemento(rs.getInt("id_elemento"));
+				r.setId_persona(rs.getInt("id_persona"));
+				r.setFecha_inicio(rs.getDate("fecha_inicio"));
+				r.setFecha_fin(rs.getDate("fecha_fin"));
+				r.setDetalle(rs.getString("detalle"));
+				res.add(r);
+				
+				} 			
+			}
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		try {
+			if(rs!=null) rs.close(); 
+			if(stmt!=null) stmt.close(); 
+			FactoryConexion.getInstancia().releaseConn();  
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		return res;		
+		}
+	
+	
 	public void addReserva(Reserva res){
 		PreparedStatement stmt = null;
 

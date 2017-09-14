@@ -29,5 +29,11 @@ public ArrayList<Reserva> getall(){
 		return res;
 		
 	}
+
+public ArrayList<Reserva> getMisReservas(int idPersona){
+	
+	return dataRes.getMisReservas(idPersona);
+	
+}
 	
 }

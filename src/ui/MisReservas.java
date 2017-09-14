@@ -36,6 +36,12 @@ import java.awt.event.MouseEvent;
 
 public class MisReservas extends JFrame {
 
+	public int idPersona;
+	
+	public void setIdPersona(int idPersona) {
+		this.idPersona = idPersona;
+	}
+
 	CtrlReserva ctrlres = new CtrlReserva();
 	private JPanel contentPane;
 	private JTable table;
@@ -61,7 +67,7 @@ public class MisReservas extends JFrame {
 		Reserva re = new Reserva();
 		CtrlReserva controlador = new CtrlReserva();
 		
-		reservas = controlador.getMisReservas();
+		reservas = controlador.getMisReservas(idPersona);
 		
 		Object nombreColumnas[] = { "id Elemento", "id Persona", "fecha inicio", " fecha fin", "detalle"};
 		Object datos[][] = new String[reservas.size()][nombreColumnas.length]; 

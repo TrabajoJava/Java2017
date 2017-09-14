@@ -85,6 +85,7 @@ public class Login extends JFrame {
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent arg0) {
 				btnIngresarClick();
+				
 			}
 		});
 		btnIngresar.setBounds(105, 73, 89, 23);
@@ -120,6 +121,7 @@ public class Login extends JFrame {
 		if(per!=null){
 			Menu menu = new Menu();
 			menu.setVisible(true);
+			menu.setIdPersona(p.getId());
 			dispose();
 					
 		}

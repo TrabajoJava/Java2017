@@ -38,6 +38,12 @@ public class ABMCReserva extends JFrame {
 	CtrlReserva ctrlres = new CtrlReserva();
 	private JPanel contentPane;
 	
+	public int idPersona;
+	
+	public void setIdPersona(int idPersona) {
+		this.idPersona = idPersona;
+	}
+	
 	
 	public ABMCReserva() {
 		setTitle("Reserva");
@@ -66,6 +72,7 @@ public class ABMCReserva extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				MisReservas mr = new MisReservas();
 				mr.setVisible(true);
+				mr.setIdPersona(idPersona);
 				
 			}
 		});
