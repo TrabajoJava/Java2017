@@ -6,22 +6,85 @@ import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.TableModel;
+
+import controlers.CtrlPersona;
+import controlers.CtrlTipo;
+import data.DataTipoElemento;
+import entity.Persona;
+import entity.TipoElemento;
+
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import java.awt.Font;
+import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
+import javax.swing.JTextArea;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+import javax.swing.border.CompoundBorder;
+import javax.swing.table.DefaultTableModel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class ABMCTipo extends JFrame {
 
 	private JPanel contentPane;
+	CtrlTipo ctrltipo = new CtrlTipo();
+	private JTable table;
+
+
+	ArrayList<TipoElemento> tipos = null; 
+	
 
 	public ABMCTipo() {
-		setTitle("Tipo");
-		setDefaultCloseOperation(JInternalFrame.WHEN_IN_FOCUSED_WINDOW);
-		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		
+			setTitle("Tipo Elemento");
+			setDefaultCloseOperation(JInternalFrame.WHEN_IN_FOCUSED_WINDOW);
+			setBounds(100, 100, 555, 379);
+			contentPane = new JPanel();
+			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+			setContentPane(contentPane);
+			contentPane.setLayout(null);
+			JScrollPane scrollPane = new JScrollPane();
+			scrollPane.setBounds(10, 0, 519, 87);
+			contentPane.add(scrollPane);
+			
+			
+			
+			TipoElemento te = new TipoElemento();
+			CtrlTipo controlador = new CtrlTipo();
+			
+			tipos = controlador.getalltipos();
+			
+			Object nombreColumnas[] = { "Id tipo", "Nombre tipo", "Max. Reservas"};
+			Object datos[][] = new String[tipos.size()][nombreColumnas.length]; 
+			
+
+			for (int x = 0; x < tipos.size(); x++) {
+				
+				datos [x][0] = String.valueOf(tipos.get(x).getIdtipo());
+				
+				datos [x][1] = tipos.get(x).getNombretipo();
+				
+				datos [x][2] = String.valueOf(tipos.get(x).getCantmaxreservaspendientes());
+
+	
+				
+			
+			}
+			
+			table = new JTable();
+			DefaultTableModel modelo = new DefaultTableModel(datos,nombreColumnas);
+			table.setModel(modelo);
+			
+			scrollPane.setViewportView(table);
 		
 		JButton btnAgregar = new JButton("Agregar");
 		btnAgregar.addActionListener(new ActionListener() {

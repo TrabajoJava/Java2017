@@ -120,6 +120,7 @@ public class Login extends JFrame {
 		if(per!=null){
 			Menu menu = new Menu();
 			menu.setVisible(true);
+			dispose();
 					
 		}
 	}
