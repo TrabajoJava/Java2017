@@ -32,38 +32,36 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JLabel;
 
-public class ABMCReserva extends JFrame {
+public class FormDisponibles extends JFrame {
 
-	CtrlReserva ctrlres = new CtrlReserva();
+
 	private JPanel contentPane;
+	private JTextField txtDetalle;
 	
+
+
 	
-	public ABMCReserva() {
-		setTitle("Reserva");
-		setDefaultCloseOperation(JInternalFrame.WHEN_IN_FOCUSED_WINDOW);
-		setBounds(100, 100, 349, 217);
+	public FormDisponibles() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 454, 306);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-
+		JLabel lblIngreseDetalle = new JLabel("Ingrese detalle:");
+		lblIngreseDetalle.setBounds(22, 177, 95, 14);
+		contentPane.add(lblIngreseDetalle);
 		
-		JButton btnAgregar = new JButton("Agregar Reserva");
-		btnAgregar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				FormAgregarReserva far = new FormAgregarReserva();
-				far.setVisible(true);
-			}
-		});
-		btnAgregar.setBounds(73, 50, 158, 23);
-		contentPane.add(btnAgregar);
+		JButton btnReservar = new JButton("Reservar");
+		btnReservar.setBounds(316, 227, 89, 23);
+		contentPane.add(btnReservar);
 		
-		JButton btnMisReservas = new JButton("Mis reservas");
-		btnMisReservas.setBounds(73, 98, 158, 23);
-		contentPane.add(btnMisReservas);
-		
+		txtDetalle = new JTextField();
+		txtDetalle.setBounds(115, 174, 290, 20);
+		contentPane.add(txtDetalle);
+		txtDetalle.setColumns(10);
 	}
 }
