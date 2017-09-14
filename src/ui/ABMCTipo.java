@@ -47,13 +47,13 @@ public class ABMCTipo extends JFrame {
 		
 			setTitle("Tipo Elemento");
 			setDefaultCloseOperation(JInternalFrame.WHEN_IN_FOCUSED_WINDOW);
-			setBounds(100, 100, 555, 379);
+			setBounds(100, 100, 555, 271);
 			contentPane = new JPanel();
 			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 			setContentPane(contentPane);
 			contentPane.setLayout(null);
 			JScrollPane scrollPane = new JScrollPane();
-			scrollPane.setBounds(10, 0, 519, 87);
+			scrollPane.setBounds(10, 11, 519, 110);
 			contentPane.add(scrollPane);
 			
 			
@@ -94,7 +94,7 @@ public class ABMCTipo extends JFrame {
 				
 			}
 		});
-		btnAgregar.setBounds(10, 215, 89, 23);
+		btnAgregar.setBounds(58, 182, 89, 23);
 		contentPane.add(btnAgregar);
 		
 		JButton btnModificar = new JButton("Modificar");
@@ -102,11 +102,11 @@ public class ABMCTipo extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btnModificar.setBounds(109, 215, 89, 23);
+		btnModificar.setBounds(172, 182, 89, 23);
 		contentPane.add(btnModificar);
 		
 		JButton btnEliminar = new JButton("Eliminar");
-		btnEliminar.setBounds(208, 215, 89, 23);
+		btnEliminar.setBounds(291, 182, 89, 23);
 		contentPane.add(btnEliminar);
 		
 		JButton btnBuscar = new JButton("Buscar");
@@ -116,8 +116,21 @@ public class ABMCTipo extends JFrame {
 				fte.setVisible(true);
 			}
 		});
-		btnBuscar.setBounds(307, 215, 89, 23);
+		btnBuscar.setBounds(410, 182, 89, 23);
 		contentPane.add(btnBuscar);
+		
+		JButton btnActualizar = new JButton("Actualizar");
+		btnActualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				dispose(); //cierra ventana
+				
+				ABMCTipo pr = new ABMCTipo();
+				pr.setVisible(true);
+			}
+		});
+		btnActualizar.setBounds(10, 132, 101, 23);
+		contentPane.add(btnActualizar);
 	}
 
 }

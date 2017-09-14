@@ -73,6 +73,8 @@ public class FormAgregarPersona extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				agregarClick();
+				JOptionPane.showMessageDialog(contentPane, "Persona agregada con exito");
+		
 			}
 		});
 		

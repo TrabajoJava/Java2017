@@ -45,13 +45,13 @@ public class ABMCPersona extends JFrame {
 	public ABMCPersona() {
 		setTitle("Persona");
 		setDefaultCloseOperation(JInternalFrame.WHEN_IN_FOCUSED_WINDOW);
-		setBounds(100, 100, 555, 379);
+		setBounds(100, 100, 555, 284);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 0, 519, 87);
+		scrollPane.setBounds(10, 0, 519, 133);
 		contentPane.add(scrollPane);
 		
 		
@@ -99,7 +99,7 @@ public class ABMCPersona extends JFrame {
 				
 			}
 		});
-		btnAgregar.setBounds(53, 210, 89, 23);
+		btnAgregar.setBounds(43, 202, 89, 23);
 		contentPane.add(btnAgregar);
 		
 		JButton btnModificar = new JButton("Modificar");
@@ -115,7 +115,7 @@ public class ABMCPersona extends JFrame {
 			}
 		});
 		
-		btnModificar.setBounds(170, 210, 89, 23);
+		btnModificar.setBounds(152, 202, 89, 23);
 		contentPane.add(btnModificar);
 		
 		JButton btnEliminar = new JButton("Eliminar");
@@ -128,19 +128,11 @@ public class ABMCPersona extends JFrame {
 			Persona per = new Persona();
 			per.setDni(dni);
 			CtrlPersona ctrlper =new CtrlPersona();
-			ctrlper.deletebydni(per);
-			dispose(); //cierra ventana
-			
-			ABMCPersona pr = new ABMCPersona();
-			pr.setVisible(true);
-			
-			
-			
-			
+			ctrlper.deletebydni(per);		
 			
 		}
 	});
-		btnEliminar.setBounds(284, 210, 89, 23);
+		btnEliminar.setBounds(262, 202, 89, 23);
 		contentPane.add(btnEliminar);
 		
 		
@@ -152,12 +144,22 @@ public class ABMCPersona extends JFrame {
 				fp.setVisible(true);
 			}
 		});
-		btnBuscar.setBounds(391, 210, 89, 23);
+		btnBuscar.setBounds(378, 202, 89, 23);
 		contentPane.add(btnBuscar);
+		
+		JButton btnActualizar = new JButton("Actualizar");
+		btnActualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose(); //cierra ventana
+				
+				ABMCPersona pr = new ABMCPersona();
+				pr.setVisible(true);
+			}
+		});
+		btnActualizar.setBounds(10, 144, 100, 23);
+		contentPane.add(btnActualizar);
 		
 		
 		}
-	
-	
 	}
 

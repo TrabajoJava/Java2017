@@ -24,7 +24,7 @@ public class Menu extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JButton btnAbmcelemento = new JButton("Administrar Elementos");
+		JButton btnAbmcelemento = new JButton("Elementos");
 		btnAbmcelemento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ABMCElemento el = new ABMCElemento();
@@ -35,7 +35,7 @@ public class Menu extends JFrame {
 		btnAbmcelemento.setBounds(124, 78, 181, 23);
 		contentPane.add(btnAbmcelemento);
 
-		JButton btnAbmctipoelemento = new JButton("Administrar Tipos de Elementos");
+		JButton btnAbmctipoelemento = new JButton("Tipos de Elementos");
 		btnAbmctipoelemento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ABMCTipo ti = new ABMCTipo();
@@ -46,7 +46,7 @@ public class Menu extends JFrame {
 		btnAbmctipoelemento.setBounds(124, 131, 181, 23);
 		contentPane.add(btnAbmctipoelemento);
 
-		JButton btnAbmcpersona = new JButton("Administrar Personas");
+		JButton btnAbmcpersona = new JButton("Personas");
 		btnAbmcpersona.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ABMCPersona pe = new ABMCPersona();

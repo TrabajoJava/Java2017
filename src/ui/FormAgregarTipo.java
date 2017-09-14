@@ -18,6 +18,7 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JButton;
+import javax.swing.SwingConstants;
 
 public class FormAgregarTipo extends JFrame {
 
@@ -52,7 +53,7 @@ public class FormAgregarTipo extends JFrame {
 		setTitle("Agrega Tipo");
 		setDefaultCloseOperation(JInternalFrame.WHEN_IN_FOCUSED_WINDOW);
 		
-		setBounds(100, 100, 262, 275);
+		setBounds(100, 100, 234, 207);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -64,25 +65,28 @@ public class FormAgregarTipo extends JFrame {
 		txtIdTipo.setColumns(10);
 		
 		txtNomTipo = new JTextField();
-		txtNomTipo.setBounds(86, 67, 86, 20);
+		txtNomTipo.setBounds(86, 56, 86, 20);
 		contentPane.add(txtNomTipo);
 		txtNomTipo.setColumns(10);
 		
 		txtCantMax = new JTextField();
-		txtCantMax.setBounds(86, 112, 86, 20);
+		txtCantMax.setBounds(86, 87, 86, 20);
 		contentPane.add(txtCantMax);
 		txtCantMax.setColumns(10);
 		
-		JLabel lblNomTipo = new JLabel("Nombre");
-		lblNomTipo.setBounds(10, 70, 46, 14);
+		JLabel lblNomTipo = new JLabel("Nombre:");
+		lblNomTipo.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblNomTipo.setBounds(10, 59, 66, 14);
 		contentPane.add(lblNomTipo);
 		
-		JLabel lblIdTipo = new JLabel("ID");
-		lblIdTipo.setBounds(10, 28, 46, 14);
+		JLabel lblIdTipo = new JLabel("Id:");
+		lblIdTipo.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblIdTipo.setBounds(10, 28, 66, 14);
 		contentPane.add(lblIdTipo);
 		
-		JLabel lblCantmax = new JLabel("CantMax");
-		lblCantmax.setBounds(10, 115, 46, 14);
+		JLabel lblCantmax = new JLabel("CantMax:");
+		lblCantmax.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblCantmax.setBounds(10, 90, 66, 14);
 		contentPane.add(lblCantmax);
 		
 		btnAgregar = new JButton("Agregar");
@@ -92,7 +96,7 @@ public class FormAgregarTipo extends JFrame {
 				agregarClick();
 			}
 		});
-		btnAgregar.setBounds(83, 182, 89, 23);
+		btnAgregar.setBounds(63, 134, 89, 23);
 		contentPane.add(btnAgregar);
 	}
 	
