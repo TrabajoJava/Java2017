@@ -56,7 +56,7 @@ public class MisReservas extends JFrame {
 	public MisReservas(int idper) {
 		setTitle("Mis reservas");
 		setDefaultCloseOperation(JInternalFrame.WHEN_IN_FOCUSED_WINDOW);
-		setBounds(100, 100, 555, 284);
+		setBounds(100, 100, 555, 261);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);

@@ -25,6 +25,7 @@ import entity.TipoElemento;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.border.EmptyBorder;
+import javax.swing.SwingConstants;
 
 public class FormModificarTipo extends JFrame {
 	
@@ -45,36 +46,39 @@ public class FormModificarTipo extends JFrame {
 		
 		setTitle("Modifica Tipo de Elemento");
 		setDefaultCloseOperation(JInternalFrame.WHEN_IN_FOCUSED_WINDOW);
-		setBounds(100, 100, 373, 293);
+		setBounds(100, 100, 315, 187);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblIdTipo = new JLabel("Id tipo:");
-		lblIdTipo.setBounds(168, 42, 46, 14);
+		lblIdTipo.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblIdTipo.setBounds(128, 11, 46, 14);
 		contentPane.add(lblIdTipo);
 		
 		txtIdTipo = new JTextField();
-		txtIdTipo.setBounds(224, 39, 86, 20);
+		txtIdTipo.setBounds(184, 8, 86, 20);
 		contentPane.add(txtIdTipo);
 		txtIdTipo.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("Cantidad maximas reservas pendientes:");
-		lblNewLabel.setBounds(10, 86, 216, 14);
+		JLabel lblNewLabel = new JLabel("Maximas reservas pendientes:");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblNewLabel.setBounds(-42, 42, 216, 14);
 		contentPane.add(lblNewLabel);
 		
 		txtCmrp = new JTextField();
-		txtCmrp.setBounds(224, 83, 86, 20);
+		txtCmrp.setBounds(184, 39, 86, 20);
 		contentPane.add(txtCmrp);
 		txtCmrp.setColumns(10);
 		
 		JLabel lblNombreTipo = new JLabel("Nombre tipo:");
-		lblNombreTipo.setBounds(143, 127, 71, 14);
+		lblNombreTipo.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblNombreTipo.setBounds(103, 73, 71, 14);
 		contentPane.add(lblNombreTipo);
 		
 		txtNombreTipo = new JTextField();
-		txtNombreTipo.setBounds(224, 124, 86, 20);
+		txtNombreTipo.setBounds(184, 70, 86, 20);
 		contentPane.add(txtNombreTipo);
 		txtNombreTipo.setColumns(10);
 
@@ -89,7 +93,7 @@ public class FormModificarTipo extends JFrame {
 				ModificarClick();
 			}
 		});
-		btnModificar.setBounds(221, 193, 89, 23);
+		btnModificar.setBounds(200, 114, 89, 23);
 		contentPane.add(btnModificar);
 	}
 	

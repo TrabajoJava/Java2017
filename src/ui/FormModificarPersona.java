@@ -55,14 +55,17 @@ public class FormModificarPersona extends JFrame {
 		setContentPane(contentPane);
 		
 		
-		JLabel lblDni = new JLabel("DNI");
+		JLabel lblDni = new JLabel("DNI:");
+		lblDni.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		txtDni = new JTextField();
 		txtDni.setColumns(10);
 		
 		JLabel lblNombre = new JLabel("Nombre");
+		lblNombre.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		JLabel lblApellido = new JLabel("Apellido");
+		lblApellido.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		txtNombre = new JTextField();
 		txtNombre.setColumns(10);
@@ -84,13 +87,15 @@ public class FormModificarPersona extends JFrame {
 			}
 		});
 		
-		JLabel lblId = new JLabel("ID");
+		JLabel lblId = new JLabel("Id:");
+		lblId.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		txtId = new JTextField();
 		txtId.setEditable(false);
 		txtId.setColumns(10);
 		
-		lblUsuario = new JLabel("Usuario");
+		lblUsuario = new JLabel("Usuario:");
+		lblUsuario.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		txtUsuario = new JTextField();
 		txtUsuario.setColumns(10);
