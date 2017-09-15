@@ -28,7 +28,7 @@ public class FormBuscaElemento extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textId;
-	private JTextField textField;
+	private JTextField textNombre;
 
 	/**
 	 * Create the frame.
@@ -59,10 +59,10 @@ public class FormBuscaElemento extends JFrame {
 		contentPane.add(textId);
 		textId.setColumns(10);
 		
-		textField = new JTextField();
-		textField.setBounds(109, 99, 86, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		textNombre = new JTextField();
+		textNombre.setBounds(109, 99, 86, 20);
+		contentPane.add(textNombre);
+		textNombre.setColumns(10);
 		
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.addActionListener(new ActionListener() {
