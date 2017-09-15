@@ -1,18 +1,46 @@
 package ui;
 
 import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.TableModel;
 
+import controlers.CtrlElemento;
+import controlers.CtrlPersona;
+import data.DataElemento;
+import entity.Elemento;
+import entity.Persona;
+
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import java.awt.Font;
+import java.awt.Color;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
+import javax.swing.JTextArea;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+import javax.swing.border.CompoundBorder;
+import javax.swing.table.DefaultTableModel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 public class ABMCElemento extends JFrame {
 	
+	CtrlElemento ctrlele = new CtrlElemento();
 	private JPanel contentPane;
+	private JTable table;
+
+
+	ArrayList<Elemento> elementos = null; 
+	
 
 	public ABMCElemento() {
 		setTitle("Elemento");
@@ -22,6 +50,33 @@ public class ABMCElemento extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 11, 414, 133);
+		contentPane.add(scrollPane);
+		
+		Elemento e = new Elemento();
+		CtrlElemento controlador = new CtrlElemento();
+		
+		elementos = controlador.getAll();
+		
+		Object nombreColumnas[] = { "ID Elemento", "Nombre Elemento"};
+		Object datos[][] = new String[elementos.size()][nombreColumnas.length]; 
+		
+
+		for (int x = 0; x < elementos.size(); x++) {
+			
+			datos [x][0] = String.valueOf(elementos.get(x).getIdElemento());
+			
+			datos [x][1] = elementos.get(x).getNombreElemento();
+			
+					}
+		
+		table = new JTable();
+		DefaultTableModel modelo = new DefaultTableModel(datos,nombreColumnas);
+		table.setModel(modelo);
+		
+		scrollPane.setViewportView(table);
+
 		
 		JButton btnAgregar = new JButton("Agregar");
 		btnAgregar.addActionListener(new ActionListener() {

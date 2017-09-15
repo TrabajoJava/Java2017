@@ -122,7 +122,7 @@ public class ABMCTipo extends JFrame {
 				TipoElemento te = new TipoElemento();
 				te.setIdtipo(Integer.parseInt(idtipo));;
 				CtrlTipo ctrltipo =new CtrlTipo();
-				//aca va el deletebyidtipo
+				ctrltipo.deletebyid(te);
 			}
 		});
 		btnEliminar.setBounds(291, 182, 89, 23);
