@@ -123,6 +123,7 @@ public class ABMCTipo extends JFrame {
 				te.setIdtipo(Integer.parseInt(idtipo));;
 				CtrlTipo ctrltipo =new CtrlTipo();
 				ctrltipo.deletebyid(te);
+				JOptionPane.showMessageDialog(contentPane, "Eliminado con exito");
 			}
 		});
 		btnEliminar.setBounds(291, 182, 89, 23);

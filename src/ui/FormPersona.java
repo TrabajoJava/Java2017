@@ -41,7 +41,7 @@ public class FormPersona extends JFrame {
 	public FormPersona() {
 		setTitle("Busca Persona");
 		setDefaultCloseOperation(JInternalFrame.WHEN_IN_FOCUSED_WINDOW);
-		setBounds(100, 100, 209, 289);
+		setBounds(100, 100, 225, 312);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -114,7 +114,7 @@ public class FormPersona extends JFrame {
 								.addComponent(txtApellido, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(chkHabilitado)
 								.addComponent(btnBuscar))))
-					.addContainerGap(28, Short.MAX_VALUE))
+					.addContainerGap(46, Short.MAX_VALUE))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -141,9 +141,9 @@ public class FormPersona extends JFrame {
 						.addComponent(txtUsuario, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(chkHabilitado)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGap(18)
 					.addComponent(btnBuscar)
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addContainerGap(16, Short.MAX_VALUE))
 		);
 		contentPane.setLayout(gl_contentPane);
 	}

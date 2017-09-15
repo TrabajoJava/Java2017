@@ -1,4 +1,5 @@
 INTEGRANTES:
+
 Biolatto, Facundo 
 Legajo: 42471
 
@@ -8,66 +9,3 @@ Legajo: 41857
 Salvucci, Bianca
 Legajo:41775
 
-BASE DE DATOS
-
--- Table structure for table `categoria`
---
-
-DROP TABLE IF EXISTS `categoria`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `categoria` (
-  `idcat` int(11) NOT NULL,
-  `nombrecat` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idcat`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
--- Table structure for table `persona`
---
-
-DROP TABLE IF EXISTS `persona`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `persona` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) DEFAULT NULL,
-  `apellido` varchar(45) DEFAULT NULL,
-  `dni` varchar(45) DEFAULT NULL,
-  `habilitado` tinyint(4) NOT NULL,
-  `usuario` varchar(45) DEFAULT NULL,
-  `contraseña` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `dni_UNIQUE` (`dni`)
-) ENGINE=InnoDB AUTO_INCREMENT=90 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
--- Table structure for table `tipoelemento`
---
-
-DROP TABLE IF EXISTS `tipoelemento`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tipoelemento` (
-  `idTipo` int(11) NOT NULL AUTO_INCREMENT,
-  `nombreTipo` varchar(45) DEFAULT NULL,
-  `cantmaxreservaspendientes` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idTipo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
--- Table structure for table `elemento`
---
-
-DROP TABLE IF EXISTS `elemento`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `elemento` (
-  `idElemento` int(11) NOT NULL AUTO_INCREMENT,
-  `nombreElemento` varchar(45) DEFAULT NULL,
-  `idTipo_fk` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idElemento`),
-  KEY `idTipo_fk_idx` (`idTipo_fk`),
-  CONSTRAINT `idTipo_fk` FOREIGN KEY (`idTipo_fk`) REFERENCES `tipoelemento` (`idTipo`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;

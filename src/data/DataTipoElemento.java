@@ -141,11 +141,14 @@ public class DataTipoElemento {
 		
 		PreparedStatement stmt = null;
 		PreparedStatement stmt2 =null;
+		//PreparedStatement stmt3=null;
 		int idtipo = te.getIdtipo();
 		
 		try {
 			
+			//stmt3 =  FactoryConexion.getInstancia().getConn().prepareStatement("delete from reservas r inner join elementos e on e.id_elemento = r.id_elemento where id_tipo = ?;");
 			stmt =  FactoryConexion.getInstancia().getConn().prepareStatement("delete from elementos where id_tipo =?");
+			
 			stmt2 = FactoryConexion.getInstancia().getConn().prepareStatement("delete from tipoelementos where id_tipo =?");
 			stmt.setInt(1, idtipo);
 			stmt2.setInt(1, idtipo);

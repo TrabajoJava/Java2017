@@ -91,6 +91,8 @@ public class FormModificarTipo extends JFrame {
 		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				ModificarClick();
+				JOptionPane.showMessageDialog(contentPane, "Tipo Elemento modificado con exito");
+				dispose();
 			}
 		});
 		btnModificar.setBounds(200, 114, 89, 23);
