@@ -149,10 +149,15 @@ public class DataElemento {
 				ArrayList<Elemento> lib= new ArrayList<Elemento>();
 				
 				try {
-					stmt = FactoryConexion.getInstancia().getConn().prepareStatement("set @fechaini = ? ;set @fechafin = ?;set @tipo =?;select *from elementos el where el.id_tipo = @tipo and el.id_elemento not in (select ele.id_elemento from elementos ele inner join reservas res on ele.id_elemento = res.id_elemento where ((@fechafin >= res.fecha_inicio and @fechaini <= res.fecha_fin) or (@fechaini >= res.fecha_inicio and @fechafin <= res.fecha_fin) or (@fechaini <= res.fecha_fin and @fechafin >= res.fecha_fin)) and ele.id_tipo = @tipo)");
-					stmt.setDate(1, fini);
+					stmt = FactoryConexion.getInstancia().getConn().prepareStatement("select * from elementos el where el.id_tipo = ? and el.id_elemento not in ( select ele.id_elemento from elementos ele inner join reservas res on ele.id_elemento = res.id_elemento where ((? >= res.fecha_inicio and ? <= res.fecha_fin) or (? >= res.fecha_inicio and ? <= res.fecha_fin) or (? <= res.fecha_fin and ? >= res.fecha_fin)) and ele.id_tipo = ?)");
+					stmt.setInt(1, tipo);
 					stmt.setDate(2, ffin);
-					stmt.setInt(3, tipo);
+					stmt.setDate(3, fini);
+					stmt.setDate(4, fini);
+					stmt.setDate(5, ffin);
+					stmt.setDate(6, fini);
+					stmt.setDate(7, ffin);
+					stmt.setInt(8, tipo);
 					rs = stmt.executeQuery(); 
 					if(rs!=null){
 						while(rs.next()){
