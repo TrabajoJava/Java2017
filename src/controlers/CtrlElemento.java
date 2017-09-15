@@ -36,10 +36,16 @@ public class CtrlElemento {
 	}
 	
 	
-	/*public ArrayList<Elemento> getAllbytipo(int idTipo){
+	public void deletebyid(Elemento e){
 		
-		return dataElemento.getAllbyTipo(idTipo);
-				
-	}*/
+		dataElemento.deleteById(e);
+		
+	}
+	
+	public Elemento getbyid(Elemento e)
+	{
+		
+		return dataElemento.getById(e);
+	}
 	
 }

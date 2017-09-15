@@ -98,10 +98,27 @@ public class ABMCElemento extends JFrame {
 		contentPane.add(btnModificar);
 		
 		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int fila;
+				fila = table.getSelectedRow();
+				String idele;
+				idele =  (String) table.getModel().getValueAt(fila,0);
+				Elemento el = new Elemento();
+				el.setIdElemento(Integer.parseInt(idele));
+				ctrlele.deletebyid(el);
+				JOptionPane.showMessageDialog(contentPane, "Elemento eliminado con exito");
+			}
+		});
 		btnEliminar.setBounds(208, 215, 89, 23);
 		contentPane.add(btnEliminar);
 		
 		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnBuscar.setBounds(307, 215, 89, 23);
 		contentPane.add(btnBuscar);
 		
