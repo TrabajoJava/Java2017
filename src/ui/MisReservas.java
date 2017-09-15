@@ -121,6 +121,16 @@ public class MisReservas extends JFrame {
 		});
 		btnCancelarReserva.setBounds(210, 179, 122, 23);
 		contentPane.add(btnCancelarReserva);
+		
+		JButton btnActualizar = new JButton("Actualizar");
+		btnActualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+				MisReservas mr = new MisReservas(idper);
+			}
+		});
+		btnActualizar.setBounds(20, 144, 89, 23);
+		contentPane.add(btnActualizar);
 
 		
 	}
