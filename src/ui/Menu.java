@@ -16,11 +16,12 @@ public class Menu extends JFrame {
 	public int idPersona;
 	private JPanel contentPane;
 
-	public void setIdPersona(int idPersona) {
+	/*public void setIdPersona(int idPersona) {
 		this.idPersona = idPersona;
-	}
+	}*/
 	
-	public Menu() {
+	public Menu(int idper) {
+		
 		setTitle("Menu");
 		setDefaultCloseOperation(JInternalFrame.WHEN_IN_FOCUSED_WINDOW);
 		setBounds(100, 100, 450, 300);
@@ -65,9 +66,10 @@ public class Menu extends JFrame {
 		JButton btnAbmcreserva = new JButton("Reservas");
 		btnAbmcreserva.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				ABMCReserva ar = new ABMCReserva();
+				
+				ABMCReserva ar = new ABMCReserva(idper);
 				ar.setVisible(true);
-				ar.setIdPersona(idPersona);
+				//ar.setIdPersona(idPersona);
 				
 				
 			}

@@ -13,6 +13,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import controlers.CtrlTipo;
+import entity.Persona;
+import entity.Reserva;
 import entity.TipoElemento;
 
 import javax.swing.JLabel;
@@ -20,10 +22,14 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.awt.event.ActionEvent;
 
 public class FormAgregarReserva extends JFrame {
-
+	Date ffin,fini;
+	int tipo;
+	
 	CtrlTipo ctrlper = new CtrlTipo();
 	private JPanel contentPane;
 	private JTable table;
@@ -83,25 +89,38 @@ public class FormAgregarReserva extends JFrame {
 	contentPane.add(lblFecha_fin);
 	
 	txtFechaIni = new JTextField();
-	txtFechaIni.setBounds(134, 151, 114, 20);
+	txtFechaIni.setBounds(134, 151, 225, 20);
 	contentPane.add(txtFechaIni);
 	txtFechaIni.setColumns(10);
 	
 	txtFechaFin = new JTextField();
-	txtFechaFin.setBounds(134, 176, 114, 20);
+	txtFechaFin.setBounds(134, 176, 225, 20);
 	contentPane.add(txtFechaFin);
 	txtFechaFin.setColumns(10);
 	
 	JButton btnDisponibles = new JButton("Ver disponibles");
 	btnDisponibles.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent arg0) {
-			FormDisponibles fd = new FormDisponibles();
+			mapear();
+			FormDisponibles fd = new FormDisponibles(fini,ffin,tipo);
 			fd.setVisible(true);
+		
 		}
 	});
 	btnDisponibles.setBounds(80, 211, 130, 23);
 	contentPane.add(btnDisponibles);
 
 	
+	}
+	
+	public void mapear(){
+		
+		this.fini = Date.valueOf(txtFechaIni.getText());
+		this.ffin= Date.valueOf(txtFechaFin.getText());
+		int fila;
+		fila = table.getSelectedRow();
+		String idtipo;
+		idtipo=(String) table.getModel().getValueAt(fila, 0);
+		this.tipo = Integer.parseInt(idtipo);
 	}
 }

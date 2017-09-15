@@ -119,9 +119,10 @@ public class Login extends JFrame {
 		if (per == null){JOptionPane.showMessageDialog(contentPane, "Usuario o contraseña incorrectos");}
 		
 		if(per!=null){
-			Menu menu = new Menu();
+			int idper = per.getId();
+			Menu menu = new Menu(idper);
 			menu.setVisible(true);
-			menu.setIdPersona(p.getId());
+			//menu.setIdPersona(per.getId());
 			dispose();
 					
 		}

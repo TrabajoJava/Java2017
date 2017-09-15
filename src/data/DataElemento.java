@@ -143,5 +143,38 @@ public class DataElemento {
 				}
 			}
 			
-			
+			public ArrayList <Elemento> getDisponibles(Date fini,Date ffin,int tipo){
+				PreparedStatement stmt=null;
+				ResultSet rs=null;
+				ArrayList<Elemento> lib= new ArrayList<Elemento>();
+				
+				try {
+					stmt = FactoryConexion.getInstancia().getConn().prepareStatement("set @fechaini = ? ;set @fechafin = ?;set @tipo =?;select *from elementos el where el.id_tipo = @tipo and el.id_elemento not in (select ele.id_elemento from elementos ele inner join reservas res on ele.id_elemento = res.id_elemento where ((@fechafin >= res.fecha_inicio and @fechaini <= res.fecha_fin) or (@fechaini >= res.fecha_inicio and @fechafin <= res.fecha_fin) or (@fechaini <= res.fecha_fin and @fechafin >= res.fecha_fin)) and ele.id_tipo = @tipo)");
+					stmt.setDate(1, fini);
+					stmt.setDate(2, ffin);
+					stmt.setInt(3, tipo);
+					rs = stmt.executeQuery(); 
+					if(rs!=null){
+						while(rs.next()){
+						Elemento l = new Elemento();
+						l.setIdElemento(rs.getInt("id_elemento"));
+						l.setNombreElemento(rs.getString("nombre_elemento"));
+						l.setIdtipo(rs.getInt("id_tipo"));
+						lib.add(l);
+						}
+					}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				try {
+					if (rs!=null) {rs.close();}
+					if (stmt!=null) {stmt.close();}
+					FactoryConexion.getInstancia().releaseConn();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				return lib;
+			}
 }

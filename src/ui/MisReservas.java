@@ -38,9 +38,9 @@ public class MisReservas extends JFrame {
 
 	public int idPersona;
 	
-	public void setIdPersona(int idPersona) {
+	/*public void setIdPersona(int idPersona) {
 		this.idPersona = idPersona;
-	}
+	}*/
 
 	CtrlReserva ctrlres = new CtrlReserva();
 	private JPanel contentPane;
@@ -50,8 +50,9 @@ public class MisReservas extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @param idper 
 	 */
-	public MisReservas() {
+	public MisReservas(int idper) {
 		setTitle("Mis reservas");
 		setDefaultCloseOperation(JInternalFrame.WHEN_IN_FOCUSED_WINDOW);
 		setBounds(100, 100, 555, 284);
@@ -67,7 +68,7 @@ public class MisReservas extends JFrame {
 		Reserva re = new Reserva();
 		CtrlReserva controlador = new CtrlReserva();
 		
-		reservas = controlador.getMisReservas(idPersona);
+		reservas = controlador.getMisReservas(idper);
 		
 		Object nombreColumnas[] = { "id Elemento", "id Persona", "fecha inicio", " fecha fin", "detalle"};
 		Object datos[][] = new String[reservas.size()][nombreColumnas.length]; 

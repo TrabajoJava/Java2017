@@ -33,6 +33,7 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.Date;
 
 public class FormDisponibles extends JFrame {
 
@@ -45,7 +46,7 @@ public class FormDisponibles extends JFrame {
 
 
 	
-	public FormDisponibles() {
+	public FormDisponibles(Date fini, Date ffin, int tipo) {
 		setTitle("Elementos");
 		setDefaultCloseOperation(JInternalFrame.WHEN_IN_FOCUSED_WINDOW);
 		setBounds(100, 100, 454, 306);
@@ -60,7 +61,7 @@ public class FormDisponibles extends JFrame {
 		Elemento ele = new Elemento();
 		CtrlElemento controlador = new CtrlElemento();
 		
-		elementos = controlador.getAll();
+		elementos = controlador.getDisp(fini, ffin, tipo);
 		
 		Object nombreColumnas[] = { "Id Elemento", "Nombre Elemento"};
 		Object datos[][] = new String[elementos.size()][nombreColumnas.length]; 

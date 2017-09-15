@@ -1,5 +1,6 @@
 package controlers;
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 import data.DataElemento;
@@ -26,6 +27,11 @@ public class CtrlElemento {
 	public ArrayList<Elemento> getAll()
 	{
 		return dataElemento.getAll();
+		
+	}
+	public ArrayList<Elemento> getDisp(Date fini,Date ffin,int tipo)
+	{
+		return dataElemento.getDisponibles(fini, ffin, tipo);
 		
 	}
 	

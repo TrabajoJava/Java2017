@@ -40,12 +40,12 @@ public class ABMCReserva extends JFrame {
 	
 	public int idPersona;
 	
-	public void setIdPersona(int idPersona) {
+	/*public void setIdPersona(int idPersona) {
 		this.idPersona = idPersona;
-	}
+	}*/
 	
 	
-	public ABMCReserva() {
+	public ABMCReserva(int idper) {
 		setTitle("Reserva");
 		setDefaultCloseOperation(JInternalFrame.WHEN_IN_FOCUSED_WINDOW);
 		setBounds(100, 100, 349, 217);
@@ -70,9 +70,9 @@ public class ABMCReserva extends JFrame {
 		JButton btnMisReservas = new JButton("Mis reservas");
 		btnMisReservas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				MisReservas mr = new MisReservas();
+				MisReservas mr = new MisReservas(idper);
 				mr.setVisible(true);
-				mr.setIdPersona(idPersona);
+				//mr.setIdPersona(idPersona);
 				
 			}
 		});
