@@ -47,7 +47,7 @@ public class DataElemento {
 					ResultSet rs=null;
 					int codigo = el.getIdElemento();
 				try {
-					stmt = FactoryConexion.getInstancia().getConn().prepareStatement("select * from elementos where id=?");
+					stmt = FactoryConexion.getInstancia().getConn().prepareStatement("select * from elementos where id_elemento=?");
 					stmt.setInt(1, codigo);
 					rs = stmt.executeQuery(); 
 					if (rs!=null && rs.next()){
@@ -104,25 +104,35 @@ public class DataElemento {
 					e.printStackTrace();
 				}
 			}
+			
 			public void deleteById(Elemento el){
+				
 				PreparedStatement stmt = null;
-				int codigo = el.getIdElemento();
+				
+				
 				try {
-					stmt =  FactoryConexion.getInstancia().getConn().prepareStatement("delete from elementos where id_elemento=?");
-					stmt.setInt(1, codigo);
+					
+					stmt =  FactoryConexion.getInstancia().getConn().prepareStatement("delete from elementos where id_elemento =?");
+					
+					stmt.setInt(1, el.getIdElemento());
+				
 					stmt.executeUpdate();
+					
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				
+
+					
 				try {
 					if(stmt!=null)stmt.close();
 					FactoryConexion.getInstancia().releaseConn();
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
+
 			}
+			
 			public void update(Elemento lib){
 				PreparedStatement stmt = null;
 			

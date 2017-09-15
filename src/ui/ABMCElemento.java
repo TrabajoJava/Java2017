@@ -116,6 +116,8 @@ public class ABMCElemento extends JFrame {
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				FormBuscaElemento fbe = new FormBuscaElemento();
+				fbe.setVisible(true);
 				
 			}
 		});

@@ -60,6 +60,7 @@ public class FormBuscaElemento extends JFrame {
 		textId.setColumns(10);
 		
 		textNombre = new JTextField();
+		textNombre.setEditable(false);
 		textNombre.setBounds(109, 99, 86, 20);
 		contentPane.add(textNombre);
 		textNombre.setColumns(10);
@@ -88,7 +89,7 @@ public class FormBuscaElemento extends JFrame {
 	}
 	
 	private void mapearAForm(Elemento e){
-		this.textId.setText(String.valueOf(e.getIdtipo()));
+		this.textId.setText(String.valueOf(e.getIdElemento()));
 		this.textNombre.setText(e.getNombreElemento());
 	}
 	
