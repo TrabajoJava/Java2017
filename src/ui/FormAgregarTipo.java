@@ -29,26 +29,7 @@ public class FormAgregarTipo extends JFrame {
 	private JTextField txtCantMax;
 	private JButton btnAgregar;
 
-	/**
-	 * Launch the application.
-	 */
-	/*
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					FormAgregarTipo frame = new FormAgregarTipo();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
-	/**
-	 * Create the frame.
-	 */
 	public FormAgregarTipo() {
 		setTitle("Agrega Tipo");
 		setDefaultCloseOperation(JInternalFrame.WHEN_IN_FOCUSED_WINDOW);
@@ -96,7 +77,7 @@ public class FormAgregarTipo extends JFrame {
 				agregarClick();
 			}
 		});
-		btnAgregar.setBounds(63, 134, 89, 23);
+		btnAgregar.setBounds(119, 134, 89, 23);
 		contentPane.add(btnAgregar);
 	}
 	

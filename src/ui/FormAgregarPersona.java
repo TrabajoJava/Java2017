@@ -22,6 +22,7 @@ import controlers.CtrlPersona;
 import entity.Persona;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
 
 public class FormAgregarPersona extends JFrame {
 	
@@ -45,19 +46,22 @@ public class FormAgregarPersona extends JFrame {
 	public FormAgregarPersona() {
 		setTitle("Agrega Persona");
 		setDefaultCloseOperation(JInternalFrame.WHEN_IN_FOCUSED_WINDOW);
-		setBounds(100, 100, 399, 368);
+		setBounds(100, 100, 284, 342);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
-		JLabel lblDni = new JLabel("DNI");
+		JLabel lblDni = new JLabel("DNI:");
+		lblDni.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		txtDni = new JTextField();
 		txtDni.setColumns(10);
 		
-		JLabel lblNombre = new JLabel("Nombre");
+		JLabel lblNombre = new JLabel("Nombre:");
+		lblNombre.setHorizontalAlignment(SwingConstants.RIGHT);
 		
-		JLabel lblApellido = new JLabel("Apellido");
+		JLabel lblApellido = new JLabel("Apellido:");
+		lblApellido.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		txtNombre = new JTextField();
 		txtNombre.setColumns(10);
@@ -79,18 +83,21 @@ public class FormAgregarPersona extends JFrame {
 			}
 		});
 		
-		JLabel lblId = new JLabel("ID");
+		JLabel lblId = new JLabel("Id:");
+		lblId.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		txtId = new JTextField();
 		txtId.setEditable(false);
 		txtId.setColumns(10);
 		
-		lblUsuario = new JLabel("Usuario");
+		lblUsuario = new JLabel("Usuario:");
+		lblUsuario.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		txtUsuario = new JTextField();
 		txtUsuario.setColumns(10);
 		
-		lblNewLabel = new JLabel("Contrase\u00F1a");
+		lblNewLabel = new JLabel("Contrasena:");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		txtContrasena = new JTextField();
 		txtContrasena.setColumns(10);
@@ -103,33 +110,30 @@ public class FormAgregarPersona extends JFrame {
 					.addContainerGap()
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
+								.addComponent(lblNewLabel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(lblUsuario, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+								.addComponent(lblApellido, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+								.addGroup(Alignment.LEADING, gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
+									.addComponent(lblNombre, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+									.addComponent(lblDni, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+									.addComponent(lblId, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)))
+							.addPreferredGap(ComponentPlacement.RELATED)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-								.addComponent(lblId, Alignment.LEADING)
-								.addComponent(lblDni, Alignment.LEADING)
-								.addComponent(lblNombre, Alignment.LEADING)
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addComponent(lblApellido)
-										.addComponent(lblUsuario))
-									.addGap(90))
-								.addComponent(btnAgregar_1))
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
-										.addComponent(txtContrasena, GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
-										.addComponent(txtUsuario)
-										.addComponent(txtApellido)
-										.addComponent(txtNombre)))
-								.addGroup(gl_contentPane.createSequentialGroup()
+								.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
 									.addGap(6)
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 										.addComponent(txtDni, GroupLayout.PREFERRED_SIZE, 133, GroupLayout.PREFERRED_SIZE)
-										.addGroup(gl_contentPane.createSequentialGroup()
-											.addComponent(txtId, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-											.addGap(18)
-											.addComponent(chkHabilitado))))))
-						.addComponent(lblNewLabel)))
+										.addComponent(txtId, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(txtNombre)))
+								.addComponent(txtApellido)
+								.addComponent(txtUsuario)
+								.addComponent(txtContrasena, GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+								.addComponent(chkHabilitado, Alignment.LEADING))
+							.addContainerGap(97, Short.MAX_VALUE))
+						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+							.addComponent(btnAgregar_1)
+							.addContainerGap())))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -137,7 +141,6 @@ public class FormAgregarPersona extends JFrame {
 					.addContainerGap()
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblId)
-						.addComponent(chkHabilitado)
 						.addComponent(txtId, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(11)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
@@ -159,9 +162,11 @@ public class FormAgregarPersona extends JFrame {
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblNewLabel)
 						.addComponent(txtContrasena, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(18)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(chkHabilitado)
+					.addPreferredGap(ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
 					.addComponent(btnAgregar_1)
-					.addContainerGap(62, Short.MAX_VALUE))
+					.addContainerGap())
 		);
 		contentPane.setLayout(gl_contentPane);
 	}

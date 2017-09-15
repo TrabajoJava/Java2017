@@ -18,6 +18,7 @@ import controlers.CtrlElemento;
 import controlers.CtrlTipo;
 import entity.Elemento;
 import entity.TipoElemento;
+import javax.swing.SwingConstants;
 
 public class FormAgregarElemento extends JFrame {
 
@@ -29,61 +30,45 @@ public class FormAgregarElemento extends JFrame {
 	private JTextField txtIdTipo;
 	private JButton btnAgregar;
 
-	/**
-	 * Launch the application.
-	 */
-	/*
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					FormAgregarTipo frame = new FormAgregarTipo();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
-	/**
-	 * Create the frame.
-	 */
 	public FormAgregarElemento() {
 		setTitle("Agrega Elemento");
 		setDefaultCloseOperation(JInternalFrame.WHEN_IN_FOCUSED_WINDOW);
 		
-		setBounds(100, 100, 262, 275);
+		setBounds(100, 100, 234, 199);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		txtIdElemento = new JTextField();
-		txtIdElemento.setBounds(86, 25, 86, 20);
+		txtIdElemento.setBounds(86, 19, 86, 20);
 		contentPane.add(txtIdElemento);
 		txtIdElemento.setColumns(10);
 		
 		txtNomElemento = new JTextField();
-		txtNomElemento.setBounds(86, 67, 86, 20);
+		txtNomElemento.setBounds(86, 50, 86, 20);
 		contentPane.add(txtNomElemento);
 		txtNomElemento.setColumns(10);
 		
 		txtIdTipo = new JTextField();
-		txtIdTipo.setBounds(86, 112, 86, 20);
+		txtIdTipo.setBounds(86, 81, 86, 20);
 		contentPane.add(txtIdTipo);
 		txtIdTipo.setColumns(10);
 		
-		JLabel lblNomTipo = new JLabel("Nombre");
-		lblNomTipo.setBounds(10, 70, 46, 14);
+		JLabel lblNomTipo = new JLabel("Nombre:");
+		lblNomTipo.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblNomTipo.setBounds(10, 53, 66, 14);
 		contentPane.add(lblNomTipo);
 		
-		JLabel lblIdElemento = new JLabel("ID");
-		lblIdElemento.setBounds(10, 28, 46, 14);
+		JLabel lblIdElemento = new JLabel("Id:");
+		lblIdElemento.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblIdElemento.setBounds(30, 22, 46, 14);
 		contentPane.add(lblIdElemento);
 		
-		JLabel lblIdTipo = new JLabel("ID Tipo");
-		lblIdTipo.setBounds(10, 115, 46, 14);
+		JLabel lblIdTipo = new JLabel("Id Tipo:");
+		lblIdTipo.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblIdTipo.setBounds(10, 84, 66, 14);
 		contentPane.add(lblIdTipo);
 		
 		btnAgregar = new JButton("Agregar");
@@ -91,9 +76,11 @@ public class FormAgregarElemento extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				agregarClick();
+				JOptionPane.showMessageDialog(contentPane, "Elemento agregado con exito");
+				dispose();
 			}
 		});
-		btnAgregar.setBounds(83, 182, 89, 23);
+		btnAgregar.setBounds(119, 126, 89, 23);
 		contentPane.add(btnAgregar);
 	}
 	

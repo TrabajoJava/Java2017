@@ -122,7 +122,7 @@ public class Login extends JFrame {
 			int idper = per.getId();
 			Menu menu = new Menu(idper);
 			menu.setVisible(true);
-			//menu.setIdPersona(per.getId());
+
 			dispose();
 					
 		}

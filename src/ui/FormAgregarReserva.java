@@ -42,7 +42,7 @@ public class FormAgregarReserva extends JFrame {
 	public FormAgregarReserva(int idper) {
 	setTitle("Agregar reserva");
 	setDefaultCloseOperation(JInternalFrame.WHEN_IN_FOCUSED_WINDOW);
-	setBounds(100, 100, 555, 284);
+	setBounds(100, 100, 555, 298);
 	contentPane = new JPanel();
 	contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 	setContentPane(contentPane);
@@ -108,17 +108,18 @@ public class FormAgregarReserva extends JFrame {
 		
 		}
 	});
-	btnDisponibles.setBounds(80, 211, 130, 23);
+	btnDisponibles.setBounds(399, 225, 130, 23);
 	contentPane.add(btnDisponibles);
 	
-	JLabel lblIngresarConFormato = new JLabel("Ingresar con formato:");
+	JLabel lblIngresarConFormato = new JLabel("* Ingresar con formato:");
 	lblIngresarConFormato.setFont(new Font("Tahoma", Font.PLAIN, 13));
-	lblIngresarConFormato.setBounds(379, 154, 150, 14);
+	lblIngresarConFormato.setBounds(20, 204, 150, 15);
 	contentPane.add(lblIngresarConFormato);
 	
 	JLabel lblAaaammdd = new JLabel("AAAA-MM-DD");
+	lblAaaammdd.setFont(new Font("Tahoma", Font.BOLD, 11));
 	lblAaaammdd.setHorizontalAlignment(SwingConstants.CENTER);
-	lblAaaammdd.setBounds(389, 176, 104, 14);
+	lblAaaammdd.setBounds(154, 205, 104, 14);
 	contentPane.add(lblAaaammdd);
 
 	

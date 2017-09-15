@@ -60,7 +60,7 @@ public class FormDisponibles extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 0, 519, 133);
+		scrollPane.setBounds(10, 11, 418, 133);
 		contentPane.add(scrollPane);
 		
 		Elemento ele = new Elemento();
@@ -104,7 +104,7 @@ public class FormDisponibles extends JFrame {
 				
 			}
 		});
-		btnReservar.setBounds(316, 227, 89, 23);
+		btnReservar.setBounds(339, 233, 89, 23);
 		contentPane.add(btnReservar);
 		
 		txtDetalle = new JTextField();

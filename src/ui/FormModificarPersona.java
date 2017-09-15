@@ -22,6 +22,7 @@ import controlers.CtrlPersona;
 import entity.Persona;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
 
 public class FormModificarPersona extends JFrame {
 	
@@ -48,7 +49,7 @@ public class FormModificarPersona extends JFrame {
 		
 		setTitle("Modifica Persona");
 		setDefaultCloseOperation(JInternalFrame.WHEN_IN_FOCUSED_WINDOW);
-		setBounds(100, 100, 355, 338);
+		setBounds(100, 100, 313, 329);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -94,7 +95,8 @@ public class FormModificarPersona extends JFrame {
 		txtUsuario = new JTextField();
 		txtUsuario.setColumns(10);
 		
-		lblNewLabel = new JLabel("Contrasena");
+		lblNewLabel = new JLabel("Contrasena:");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		txtContrasena = new JTextField();
 		txtContrasena.setColumns(10);
@@ -106,37 +108,33 @@ public class FormModificarPersona extends JFrame {
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(119)
+							.addComponent(btnModificar))
+						.addGroup(gl_contentPane.createSequentialGroup()
 							.addContainerGap()
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
+								.addComponent(lblNewLabel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(lblUsuario, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
+								.addComponent(lblApellido, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
+								.addGroup(Alignment.LEADING, gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
+									.addComponent(lblNombre, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+									.addComponent(lblDni, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+									.addComponent(lblId, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)))
+							.addPreferredGap(ComponentPlacement.RELATED)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 								.addGroup(gl_contentPane.createSequentialGroup()
-									.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-										.addComponent(lblId, Alignment.LEADING)
-										.addComponent(lblDni, Alignment.LEADING)
-										.addComponent(lblNombre, Alignment.LEADING)
-										.addGroup(gl_contentPane.createSequentialGroup()
-											.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-												.addComponent(lblApellido)
-												.addComponent(lblUsuario))
-											.addGap(90)))
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
+										.addComponent(txtContrasena, GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+										.addComponent(txtUsuario)
+										.addComponent(txtApellido)
+										.addComponent(txtNombre)
+										.addComponent(chkHabilitado, Alignment.LEADING)))
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addGap(6)
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addGroup(gl_contentPane.createSequentialGroup()
-											.addPreferredGap(ComponentPlacement.RELATED)
-											.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
-												.addComponent(txtContrasena, GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
-												.addComponent(txtUsuario)
-												.addComponent(txtApellido)
-												.addComponent(txtNombre)
-												.addComponent(chkHabilitado, Alignment.LEADING)))
-										.addGroup(gl_contentPane.createSequentialGroup()
-											.addGap(6)
-											.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-												.addComponent(txtDni, GroupLayout.PREFERRED_SIZE, 133, GroupLayout.PREFERRED_SIZE)
-												.addComponent(txtId, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
-									.addGap(44))
-								.addComponent(lblNewLabel)))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(98)
-							.addComponent(btnModificar)))
+										.addComponent(txtDni, GroupLayout.PREFERRED_SIZE, 133, GroupLayout.PREFERRED_SIZE)
+										.addComponent(txtId, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))))
 					.addContainerGap(53, Short.MAX_VALUE))
 		);
 		gl_contentPane.setVerticalGroup(

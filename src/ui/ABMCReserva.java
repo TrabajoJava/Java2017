@@ -48,7 +48,7 @@ public class ABMCReserva extends JFrame {
 	public ABMCReserva(int idper) {
 		setTitle("Reserva");
 		setDefaultCloseOperation(JInternalFrame.WHEN_IN_FOCUSED_WINDOW);
-		setBounds(100, 100, 349, 217);
+		setBounds(100, 100, 286, 152);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -64,7 +64,7 @@ public class ABMCReserva extends JFrame {
 				far.setVisible(true);
 			}
 		});
-		btnAgregar.setBounds(73, 50, 158, 23);
+		btnAgregar.setBounds(47, 23, 158, 23);
 		contentPane.add(btnAgregar);
 		
 		JButton btnMisReservas = new JButton("Mis reservas");
@@ -76,7 +76,7 @@ public class ABMCReserva extends JFrame {
 				
 			}
 		});
-		btnMisReservas.setBounds(73, 98, 158, 23);
+		btnMisReservas.setBounds(47, 67, 158, 23);
 		contentPane.add(btnMisReservas);
 		
 	}
