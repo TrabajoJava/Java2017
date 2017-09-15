@@ -24,9 +24,9 @@ public class CtrlTipo {
 	}
 	
 
-	public TipoElemento getbyId(TipoElemento te){
+	public TipoElemento getbyId(int idtipo){
 		
-		return dataTipo.getbyId(te);
+		return dataTipo.getbyId(idtipo);
 	}
 	
 public ArrayList<TipoElemento> getalltipos(){
@@ -35,5 +35,10 @@ public ArrayList<TipoElemento> getalltipos(){
 		return tipo;
 		
 	}
+
+public void update(TipoElemento te){
+	
+	 dataTipo.update(te);
+}
 
 }

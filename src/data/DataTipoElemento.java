@@ -74,15 +74,14 @@ public class DataTipoElemento {
 	}
 	
 	
-	public TipoElemento getbyId(TipoElemento te){
+	public TipoElemento getbyId(int idtipo){
 		PreparedStatement stmt=null;
 		ResultSet rs = null;
-		int idt = te.getIdtipo();
 		TipoElemento t = null;
 		
 		try {
 			stmt = FactoryConexion.getInstancia().getConn().prepareStatement("select id_tipo, nombre_tipo, cantmaxreservaspendientes from tipoelementos where id_tipo=?");
-			stmt.setInt(1, idt);
+			stmt.setInt(1, idtipo);
 			rs = stmt.executeQuery();
 			if(rs!=null && rs.next()){	
 				t = new TipoElemento();				
@@ -107,7 +106,34 @@ public class DataTipoElemento {
 			return t;
 }
 
-
+	public void update(TipoElemento te){
+		
+		PreparedStatement stmt = null;
+		
+		
+		try {
+			stmt = FactoryConexion.getInstancia().getConn().prepareStatement("update tipoelementos set id_tipo = ?, nombre_tipo = ?, cantmaxreservaspendientes= ? where id_tipo = ?");
+			stmt.setInt(1, te.getIdtipo());
+			stmt.setString(2, te.getNombretipo());
+			stmt.setInt(3, te.getCantmaxreservaspendientes());
+			stmt.setInt(4, te.getIdtipo());
+			
+			stmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			if(stmt!=null)stmt.close();
+			FactoryConexion.getInstancia().releaseConn();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+	}		
 	
 	
 	

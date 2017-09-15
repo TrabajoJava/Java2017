@@ -84,7 +84,7 @@ public class FormTipoElemento extends JFrame {
 	
 	protected void buscarClick() {
 		try {
-			this.mapearAForm(ctrl.getbyId(this.mapearDeForm()));
+			this.mapearAForm(ctrl.getbyId(this.mapearDeForm().getIdtipo()));
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(contentPane, "No existe tipo de elemento con ese Id");
 		}

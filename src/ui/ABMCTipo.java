@@ -100,12 +100,31 @@ public class ABMCTipo extends JFrame {
 		JButton btnModificar = new JButton("Modificar");
 		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				TipoElemento te = new TipoElemento();
+				int fila;
+				fila = table.getSelectedRow();
+				int idTipo;
+				idTipo =  Integer.parseInt((String)table.getModel().getValueAt(fila,0));
+				FormModificarTipo fmt = new FormModificarTipo(idTipo);
+				fmt.setVisible(true);
 			}
 		});
 		btnModificar.setBounds(172, 182, 89, 23);
 		contentPane.add(btnModificar);
 		
 		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int fila;
+				fila = table.getSelectedRow();
+				String idtipo;
+				idtipo =  (String) table.getModel().getValueAt(fila,0);
+				TipoElemento te = new TipoElemento();
+				te.setIdtipo(Integer.parseInt(idtipo));;
+				CtrlTipo ctrltipo =new CtrlTipo();
+				//aca va el deletebyidtipo
+			}
+		});
 		btnEliminar.setBounds(291, 182, 89, 23);
 		contentPane.add(btnEliminar);
 		
