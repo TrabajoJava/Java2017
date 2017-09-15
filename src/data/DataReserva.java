@@ -115,7 +115,27 @@ public class DataReserva {
 }
 		
 		
+	public void delete(Reserva re){
+		PreparedStatement stmt = null;
+		try {
+			stmt =  FactoryConexion.getInstancia().getConn().prepareStatement("delete from reservas where id_elemento=? and id_persona=? and fecha_inicio=? and fecha_fin=?");
+			stmt.setInt(1, re.getId_elemento());
+			stmt.setInt(2, re.getId_persona());
+			stmt.setDate(3, re.getFecha_inicio());
+			stmt.setDate(4, re.getFecha_fin());
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
+		try {
+			if(stmt!=null)stmt.close();
+			FactoryConexion.getInstancia().releaseConn();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 		
 		
 		

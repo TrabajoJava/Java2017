@@ -33,6 +33,7 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.Date;
 
 public class MisReservas extends JFrame {
 
@@ -95,6 +96,29 @@ public class MisReservas extends JFrame {
 		scrollPane.setViewportView(table);
 		
 		JButton btnCancelarReserva = new JButton("Cancelar reserva");
+		btnCancelarReserva.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				int fila;
+				fila = table.getSelectedRow();
+				String idele;
+				idele =  (String) table.getModel().getValueAt(fila,0);
+				String idper;
+				idper =  (String) table.getModel().getValueAt(fila,1);
+				String fecini;
+				fecini =  (String) table.getModel().getValueAt(fila,2);
+				String fecfin;
+				fecfin =  (String) table.getModel().getValueAt(fila,3);
+				Reserva re = new Reserva();
+				re.setId_elemento(Integer.parseInt(idele));
+				re.setId_persona(Integer.parseInt(idper));
+				re.setFecha_inicio(Date.valueOf(fecini));
+				re.setFecha_fin(Date.valueOf(fecfin));
+				ctrlres.delete(re);	
+				
+				
+			}
+		});
 		btnCancelarReserva.setBounds(210, 179, 122, 23);
 		contentPane.add(btnCancelarReserva);
 

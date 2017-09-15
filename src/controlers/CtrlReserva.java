@@ -35,5 +35,10 @@ public ArrayList<Reserva> getMisReservas(int idPersona){
 	return dataRes.getMisReservas(idPersona);
 	
 }
+
+public void delete(Reserva re){
+	
+	dataRes.delete(re);
+}
 	
 }
