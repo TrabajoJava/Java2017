@@ -48,7 +48,7 @@ public class FormModificarPersona extends JFrame {
 		
 		setTitle("Modifica Persona");
 		setDefaultCloseOperation(JInternalFrame.WHEN_IN_FOCUSED_WINDOW);
-		setBounds(100, 100, 412, 368);
+		setBounds(100, 100, 355, 338);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -77,6 +77,9 @@ public class FormModificarPersona extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ModificarClick();
+				
+				JOptionPane.showMessageDialog(contentPane, "Persona modificada con exito");
+				dispose();
 			}
 		});
 		
@@ -91,7 +94,7 @@ public class FormModificarPersona extends JFrame {
 		txtUsuario = new JTextField();
 		txtUsuario.setColumns(10);
 		
-		lblNewLabel = new JLabel("Contrase\u00F1a");
+		lblNewLabel = new JLabel("Contrasena");
 		
 		txtContrasena = new JTextField();
 		txtContrasena.setColumns(10);
@@ -101,36 +104,40 @@ public class FormModificarPersona extends JFrame {
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap()
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-								.addComponent(lblId, Alignment.LEADING)
-								.addComponent(lblDni, Alignment.LEADING)
-								.addComponent(lblNombre, Alignment.LEADING)
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addComponent(lblApellido)
-										.addComponent(lblUsuario))
-									.addGap(90))
-								.addComponent(btnModificar))
+							.addContainerGap()
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 								.addGroup(gl_contentPane.createSequentialGroup()
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
-										.addComponent(txtContrasena, GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
-										.addComponent(txtUsuario)
-										.addComponent(txtApellido)
-										.addComponent(txtNombre)))
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addGap(6)
-									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addComponent(txtDni, GroupLayout.PREFERRED_SIZE, 133, GroupLayout.PREFERRED_SIZE)
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+										.addComponent(lblId, Alignment.LEADING)
+										.addComponent(lblDni, Alignment.LEADING)
+										.addComponent(lblNombre, Alignment.LEADING)
 										.addGroup(gl_contentPane.createSequentialGroup()
-											.addComponent(txtId, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-											.addGap(18)
-											.addComponent(chkHabilitado))))))
-						.addComponent(lblNewLabel)))
+											.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+												.addComponent(lblApellido)
+												.addComponent(lblUsuario))
+											.addGap(90)))
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+										.addGroup(gl_contentPane.createSequentialGroup()
+											.addPreferredGap(ComponentPlacement.RELATED)
+											.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
+												.addComponent(txtContrasena, GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+												.addComponent(txtUsuario)
+												.addComponent(txtApellido)
+												.addComponent(txtNombre)
+												.addComponent(chkHabilitado, Alignment.LEADING)))
+										.addGroup(gl_contentPane.createSequentialGroup()
+											.addGap(6)
+											.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+												.addComponent(txtDni, GroupLayout.PREFERRED_SIZE, 133, GroupLayout.PREFERRED_SIZE)
+												.addComponent(txtId, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
+									.addGap(44))
+								.addComponent(lblNewLabel)))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(98)
+							.addComponent(btnModificar)))
+					.addContainerGap(53, Short.MAX_VALUE))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -138,7 +145,6 @@ public class FormModificarPersona extends JFrame {
 					.addContainerGap()
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblId)
-						.addComponent(chkHabilitado)
 						.addComponent(txtId, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(11)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
@@ -160,9 +166,11 @@ public class FormModificarPersona extends JFrame {
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblNewLabel)
 						.addComponent(txtContrasena, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(18)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(chkHabilitado)
+					.addPreferredGap(ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
 					.addComponent(btnModificar)
-					.addContainerGap(62, Short.MAX_VALUE))
+					.addContainerGap())
 		);
 		contentPane.setLayout(gl_contentPane);
 		Persona p = new Persona();

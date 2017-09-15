@@ -98,6 +98,8 @@ public class FormDisponibles extends JFrame {
 		btnReservar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				agregarClick(idper,fini,ffin,tipo);
+				JOptionPane.showMessageDialog(contentPane, "Reserva exitosa");
+				dispose();
 				
 				
 			}

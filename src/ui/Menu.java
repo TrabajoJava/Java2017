@@ -38,7 +38,7 @@ public class Menu extends JFrame {
 				
 			}
 		});
-		btnAbmcelemento.setBounds(124, 78, 181, 23);
+		btnAbmcelemento.setBounds(124, 134, 181, 23);
 		contentPane.add(btnAbmcelemento);
 
 		JButton btnAbmctipoelemento = new JButton("Tipos de Elementos");
@@ -49,7 +49,7 @@ public class Menu extends JFrame {
 				
 			}
 		});
-		btnAbmctipoelemento.setBounds(124, 131, 181, 23);
+		btnAbmctipoelemento.setBounds(124, 80, 181, 23);
 		contentPane.add(btnAbmctipoelemento);
 
 		JButton btnAbmcpersona = new JButton("Personas");

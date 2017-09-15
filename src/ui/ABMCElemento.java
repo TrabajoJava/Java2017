@@ -104,6 +104,17 @@ public class ABMCElemento extends JFrame {
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.setBounds(307, 215, 89, 23);
 		contentPane.add(btnBuscar);
+		
+		JButton btnActualizar = new JButton("Actualizar");
+		btnActualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+				
+				ABMCElemento pr = new ABMCElemento();
+				pr.setVisible(true);
+			}
+		});
+		btnActualizar.setBounds(10, 155, 98, 23);
+		contentPane.add(btnActualizar);
 	}
-
 }

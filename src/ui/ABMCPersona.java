@@ -128,7 +128,8 @@ public class ABMCPersona extends JFrame {
 			Persona per = new Persona();
 			per.setDni(dni);
 			CtrlPersona ctrlper =new CtrlPersona();
-			ctrlper.deletebydni(per);		
+			ctrlper.deletebydni(per);	
+			JOptionPane.showMessageDialog(contentPane, "Persona eliminada con exito");
 			
 		}
 	});

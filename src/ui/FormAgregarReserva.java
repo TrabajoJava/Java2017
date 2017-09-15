@@ -25,6 +25,7 @@ import java.awt.event.ActionListener;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
 //
 public class FormAgregarReserva extends JFrame {
 	Date ffin,fini;
@@ -109,6 +110,16 @@ public class FormAgregarReserva extends JFrame {
 	});
 	btnDisponibles.setBounds(80, 211, 130, 23);
 	contentPane.add(btnDisponibles);
+	
+	JLabel lblIngresarConFormato = new JLabel("Ingresar con formato:");
+	lblIngresarConFormato.setFont(new Font("Tahoma", Font.PLAIN, 13));
+	lblIngresarConFormato.setBounds(379, 154, 150, 14);
+	contentPane.add(lblIngresarConFormato);
+	
+	JLabel lblAaaammdd = new JLabel("AAAA-MM-DD");
+	lblAaaammdd.setHorizontalAlignment(SwingConstants.CENTER);
+	lblAaaammdd.setBounds(389, 176, 104, 14);
+	contentPane.add(lblAaaammdd);
 
 	
 	}
