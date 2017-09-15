@@ -60,7 +60,7 @@ public class ABMCReserva extends JFrame {
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				FormAgregarReserva far = new FormAgregarReserva();
+				FormAgregarReserva far = new FormAgregarReserva(idper);
 				far.setVisible(true);
 			}
 		});

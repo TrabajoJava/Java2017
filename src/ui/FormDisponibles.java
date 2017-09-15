@@ -11,9 +11,11 @@ import javax.swing.table.TableModel;
 
 import controlers.CtrlElemento;
 import controlers.CtrlPersona;
+import controlers.CtrlReserva;
 import data.DataElemento;
 import entity.Elemento;
 import entity.Persona;
+import entity.Reserva;
 
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -38,6 +40,7 @@ import java.sql.Date;
 public class FormDisponibles extends JFrame {
 
 	CtrlElemento ctrlele = new CtrlElemento();
+	CtrlReserva ctrlres = new CtrlReserva();
 	private JPanel contentPane;
 	private JTable table;
 	
@@ -46,8 +49,10 @@ public class FormDisponibles extends JFrame {
 
 
 	
-	public FormDisponibles(Date fini, Date ffin, int tipo) {
+	public FormDisponibles(int idper, Date fini, Date ffin, int tipo) {
 		setTitle("Elementos");
+		
+		
 		setDefaultCloseOperation(JInternalFrame.WHEN_IN_FOCUSED_WINDOW);
 		setBounds(100, 100, 454, 306);
 		contentPane = new JPanel();
@@ -90,6 +95,13 @@ public class FormDisponibles extends JFrame {
 		contentPane.add(lblIngreseDetalle);
 		
 		JButton btnReservar = new JButton("Reservar");
+		btnReservar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				agregarClick(idper,fini,ffin,tipo);
+				
+				
+			}
+		});
 		btnReservar.setBounds(316, 227, 89, 23);
 		contentPane.add(btnReservar);
 		
@@ -99,5 +111,31 @@ public class FormDisponibles extends JFrame {
 		txtDetalle.setColumns(10);
 		
 		
+	}
+	protected void agregarClick(int idper, Date fini, Date ffin, int tipo) {
+		Reserva res = this.mapearDeForm(idper,fini,ffin,tipo);
+		try{
+			ctrlres.add(res);
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(this, e.getMessage());
+		}
+		
+		
+	}
+	
+	private Reserva mapearDeForm(int idper, Date fini, Date ffin, int tipo){
+		Reserva res=new Reserva();
+		
+		res.setDetalle(this.txtDetalle.getText());
+		res.setFecha_inicio(fini);
+		res.setFecha_fin(ffin);
+		int fila;
+		fila = table.getSelectedRow();
+		String idElemento;
+		idElemento=(String) table.getModel().getValueAt(fila, 0);
+		res.setId_elemento(Integer.parseInt(idElemento));
+		res.setId_persona(idper);
+		
+		return res;
 	}
 }

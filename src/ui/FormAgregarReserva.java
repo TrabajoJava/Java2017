@@ -38,7 +38,7 @@ public class FormAgregarReserva extends JFrame {
 	private JTextField txtFechaIni;
 	private JTextField txtFechaFin;
 
-	public FormAgregarReserva() {
+	public FormAgregarReserva(int idper) {
 	setTitle("Agregar reserva");
 	setDefaultCloseOperation(JInternalFrame.WHEN_IN_FOCUSED_WINDOW);
 	setBounds(100, 100, 555, 284);
@@ -102,7 +102,7 @@ public class FormAgregarReserva extends JFrame {
 	btnDisponibles.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent arg0) {
 			mapear();
-			FormDisponibles fd = new FormDisponibles(fini,ffin,tipo);
+			FormDisponibles fd = new FormDisponibles(idper,fini,ffin,tipo);
 			fd.setVisible(true);
 		
 		}
