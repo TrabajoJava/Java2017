@@ -25,7 +25,7 @@ import java.awt.event.ActionListener;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.awt.event.ActionEvent;
-
+//
 public class FormAgregarReserva extends JFrame {
 	Date ffin,fini;
 	int tipo;

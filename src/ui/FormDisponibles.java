@@ -36,7 +36,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.Date;
-
+//
 public class FormDisponibles extends JFrame {
 
 	CtrlElemento ctrlele = new CtrlElemento();

@@ -32,7 +32,7 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
+//
 public class ABMCReserva extends JFrame {
 
 	CtrlReserva ctrlres = new CtrlReserva();
