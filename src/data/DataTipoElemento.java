@@ -137,4 +137,35 @@ public class DataTipoElemento {
 	
 	
 	
+	public void deletebyid(TipoElemento te){
+		
+		PreparedStatement stmt = null;
+		PreparedStatement stmt2 =null;
+		int idtipo = te.getIdtipo();
+		
+		try {
+			
+			stmt =  FactoryConexion.getInstancia().getConn().prepareStatement("delete from elementos where id_tipo =?");
+			stmt2 = FactoryConexion.getInstancia().getConn().prepareStatement("delete from tipoelementos where id_tipo =?");
+			stmt.setInt(1, idtipo);
+			stmt2.setInt(1, idtipo);
+			stmt.executeUpdate();
+			stmt2.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+			
+		try {
+			if(stmt!=null)stmt.close();
+			FactoryConexion.getInstancia().releaseConn();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+	
+	
 }

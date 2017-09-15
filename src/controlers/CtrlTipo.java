@@ -41,4 +41,10 @@ public void update(TipoElemento te){
 	 dataTipo.update(te);
 }
 
+public void deletebyid(TipoElemento te){
+	
+	dataTipo.deletebyid(te);
+	
+}
+
 }

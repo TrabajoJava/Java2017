@@ -51,7 +51,7 @@ public class ABMCElemento extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 0, 519, 133);
+		scrollPane.setBounds(10, 11, 414, 133);
 		contentPane.add(scrollPane);
 		
 		Elemento e = new Elemento();
